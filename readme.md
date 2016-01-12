@@ -69,4 +69,13 @@ bin\main.bat
 [报表明细](http://jixieshi999.github.io/lowen/out/20160112_162509_SFA/sh.htm)
 	
 [apk 信息提取参考链接](http://energykey.iteye.com/blog/1856173)
-	
+
+####输出报表（目前报表里面使用echarts部分没有写数据处理逻辑，框架已搭好）
+![输出报表](http://jixieshi999.github.io/lowen/detail.jpg )
+
+####操作记录
+![输出操作记录](http://jixieshi999.github.io/lowen/pic.jpg )
+####输出错误日志
+![输出错误日志](http://jixieshi999.github.io/lowen/log.jpg )
+####输出报表列表
+![输出报表列表](http://jixieshi999.github.io/lowen/list.jpg )
