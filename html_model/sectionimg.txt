@@ -1,0 +1,6 @@
+<figure class="effect-lily">
+    <img src="###section-url###" alt="img04"/>
+    <figcaption>
+	<a href="###section-url###" target="_blank">me</a>
+    </figcaption>			
+</figure>

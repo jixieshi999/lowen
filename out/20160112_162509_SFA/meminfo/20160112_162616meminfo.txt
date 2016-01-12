@@ -1,0 +1,2 @@
+  Dalvik Heap    28514    28272        0        0    34087    33342      745
+ Dalvik Other      844      844        0        0                           
