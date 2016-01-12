@@ -1,0 +1,12 @@
+--------- beginning of system
+--------- beginning of main
+01-12 16:23:06.321 I/AndroidRuntime( 9474): VM exiting with result code 36.
+01-12 16:24:36.831 D/AndroidRuntime(10761): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+01-12 16:24:36.851 D/AndroidRuntime(10761): CheckJNI is OFF
+01-12 16:24:36.851 I/AndroidRuntime(10761): readDownloadBoosterConfig: 'false'
+01-12 16:24:37.091 D/AndroidRuntime(10761): Calling main entry com.android.commands.monkey.Monkey
+01-12 16:24:38.831 D/AndroidRuntime(10786): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+01-12 16:24:38.841 D/AndroidRuntime(10786): CheckJNI is OFF
+01-12 16:24:38.841 I/AndroidRuntime(10786): readDownloadBoosterConfig: 'false'
+01-12 16:24:39.021 D/AndroidRuntime(10786): Calling main entry com.android.commands.am.Am
+01-12 16:24:39.071 D/AndroidRuntime(10786): Shutting down VM
