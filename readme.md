@@ -1,3 +1,8 @@
+###说明
+lowen 主要是用于android应用的自动化测试，并输出测试结果到html的框架
+仿腾讯[utest](http://auto.utest.qq.com/)测试框架
+
+代码有待完善，欢迎有兴趣的朋友一起讨论
 ###主框架代码
 bin\main.bat
 	循环执行N个py脚本
@@ -32,7 +37,7 @@ bin\main.bat
 
 4. testn.py 用于自动化随机模拟测试app的脚本，修改里面的启动app包名
 	eg:
-	#>monkeyrunner g:\lwh\xwandou\code\monkeytest\tools\testn.py
+	G:\lowen>monkeyrunner tools\testn.py
 
 
 5. bin\ImageMarkClickLogo.jar
@@ -43,13 +48,12 @@ bin\main.bat
 6. bin\HtmlOutPutCore.jar  
   -  用于将测试结果生成html报表的工具包
   -  用法见bin\main.bat
-	java -jar %basePath%\bin\HtmlOutPutCore.jar   out=%currentTestName% path=%basePath% -l apkPath=E:\lwh\apk\SFADali-2.1.0.1-1230-03-beta.apk aaptPath=%basePath%bin\aapt.exe result=%rrrstr% starttime=%starttime% endtime=%endtime%
+	java -jar %basePath%\bin\HtmlOutPutCore.jar   out=%currentTestName% path=%basePath% -l apkPath=beta.apk aaptPath=%basePath%bin\aapt.exe result=%rrrstr% starttime=%starttime% endtime=%endtime%
 
 注：如果输出html中文乱码，需要将所有html_model模板改为utf-8编码，jar里面控制的是utf-8编码
 
 ###eg:
-  -  G:\lwh\xwandou\code\monkeytest>monkeyrunner g:\lwh\xwandou\code\monkeytest\tools\monkey_playbackNew.py
-  -  G:\lwh\xwandou\code\monkeytest\mr\sfadaka1.mr
+  -  G:\lowen>monkeyrunner g:\lowen\tools\monkey_playbackNew.py .\mr\sfadaka1.mr
 
 
 
