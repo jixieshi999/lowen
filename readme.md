@@ -5,22 +5,23 @@ lowen 主要是用于android应用的自动化测试，并输出测试结果到h
 代码有待完善，欢迎有兴趣的朋友一起讨论
 ###主框架代码
 bin\main.bat
-	循环执行N个py脚本
-		1.初始化路径，时间
-		2.开启线程记录cpu，内存等日志
-		3.开启线程记录adb log日志
-		4.执行py脚本
-			4.1运行脚本
-			4.2批量处理截图加上水印（通过bin\ImageMarkClickLogo.jar）
-		5.关闭记录日志的线程（关闭窗口）
-		6.读取adb log日志 判断是否crash
-		7.输出html报表
+- 循环执行N个py脚本
+- 1.初始化路径，时间
+- 2.开启线程记录cpu，内存等日志
+- 3.开启线程记录adb log日志
+- 4.执行py脚本
+	- 4.1运行脚本
+	- 4.2批量处理截图加上水印（通过bin\ImageMarkClickLogo.jar）
+- 5.关闭记录日志的线程（关闭窗口）
+- 6.读取adb log日志 判断是否crash
+- 7.输出html报表
 		
 ###usage
 
-修改bin\main.bat 里面的apk 路径 
-修改tools\monkey_playbackNew.py 里面的apk 路径 ,和包名
-修改tools\monkey_test.py 里面的apk 路径 ,和包名
+- 修改bin\main.bat 里面的apk 路径 
+- 修改tools\monkey_playbackNew.py 里面的apk 路径 ,和包名
+- 修改tools\monkey_test.py 里面的apk 路径 ,和包名
+- 脚本修改完成直接运行lowen.bat
 
 ###部分文件介绍
 1. monkey_recorder.py
