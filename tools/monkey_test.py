@@ -28,6 +28,8 @@ if not device:
     print >> sys.stderr,"fail"
     sys.exit(1)
 
+device.removePackage ('com.motherbuy.bmec.android') 
+device.installPackage('G:/lwh/zhenkun/B2C1.apk')
 #定义要启动的Activity  
 componentName='com.motherbuy.bmec.android/com.motherbuy.bmec.android.WelcomeActivity'  
 #启动特定的Activity  

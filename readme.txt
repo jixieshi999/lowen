@@ -11,6 +11,12 @@ bin\main.bat
 		6.读取adb log日志 判断是否crash
 		7.输出html报表
 
+usage
+
+修改bin\main.bat 里面的apk 路径 
+修改tools\monkey_playbackNew.py 里面的apk 路径 ,和包名
+修改tools\monkey_test.py 里面的apk 路径 ,和包名
+
 
 monkey_recorder.py
 主要用于录制点击等事件的脚本
@@ -47,3 +53,6 @@ G:\lwh\xwandou\code\monkeytest>monkeyrunner g:\lwh\xwandou\code\monkeytest\tools
 
 
 apk 信息提取参考链接：http://energykey.iteye.com/blog/1856173
+demo 地址：
+http://jixieshi999.github.io/lowen/out/
+http://jixieshi999.github.io/lowen/out/20160112_162509_SFA/sh.htm

@@ -15,6 +15,8 @@ print('---------------------- end start --------------------------')
 
 
 currentTestName=sys.argv[1]
+basePath=sys.argv[2]
+#basePath="g:/lwh/xwandou/code/monkeytest/"
 #currentTestName=time.strftime( '%Y%m%d_%H%M%S', time.localtime() )+'_MMG'
 print('< system propory > currentTestName : '+currentTestName  )
 
@@ -26,6 +28,8 @@ if not device:
     print >> sys.stderr,"fail"
     sys.exit(1)
 
+device.removePackage ('com.motherbuy.bmec.android') 
+device.installPackage('G:\lwh\zhenkun\B2C1.apk')
 #定义要启动的Activity  
 componentName='com.motherbuy.bmec.android/com.motherbuy.bmec.android.WelcomeActivity'  
 #启动特定的Activity  
@@ -41,7 +45,6 @@ print('< system propory > display.height : '+str(screen_height)  )
 #config path
 outpathName="out"
 outImgpathName="img"
-basePath="g:/lwh/xwandou/code/monkeytest/"
 outpath=basePath+outpathName+"/"+currentTestName+"/"
 LOG_FILENAME=outpath+"log.txt"
 #makedirs
