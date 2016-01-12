@@ -22,6 +22,10 @@ bin\main.bat
 - 修改tools\monkey_playbackNew.py 里面的apk 路径 ,和包名
 - 修改tools\monkey_test.py 里面的apk 路径 ,和包名
 - 脚本修改完成直接运行lowen.bat
+	
+###运行环境
+- windows，安装sdk，jdk，python2.X
+- 涉及到bat脚本，python脚本，java 开发，android sdk里面的monkeyrunner框架使用等
 
 ###部分文件介绍
 1. monkey_recorder.py
