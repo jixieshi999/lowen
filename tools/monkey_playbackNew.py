@@ -1,0 +1,192 @@
+#!/usr/bin/env monkeyrunner
+#coding=utf-8
+# Copyright 2010, The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import sys
+import random
+import time
+import os
+import threading
+from com.android.monkeyrunner import MonkeyRunner
+
+# The format of the file we are parsing is very carfeully constructed.
+# Each line corresponds to a single command.  The line is split into 2
+# parts with a | character.  Text to the left of the pipe denotes
+# which command to run.  The text to the right of the pipe is a python
+# dictionary (it can be evaled into existence) that specifies the
+# arguments for the command.  In most cases, this directly maps to the
+# keyword argument dictionary that could be passed to the underlying
+# command. 
+
+# Lookup table to map command strings to functions that implement that
+# command.
+CMD_MAP = {
+    'TOUCH': lambda dev, arg: dev.touch(**arg),
+    'DRAG': lambda dev, arg: dev.drag(**arg),
+    'PRESS': lambda dev, arg: dev.press(**arg),
+    'TYPE': lambda dev, arg: dev.type(**arg),
+    #'TYPE': lambda dev, arg: dev.shell(str(arg["message"])),
+    'WAIT': lambda dev, arg: MonkeyRunner.sleep(**arg)
+    }
+CMD_MAPLog = {
+    'TOUCH': lambda f,nowtimes, rest: f.write(nowtimes+'-'+str(rest["x"])+','+str(rest["y"])+'-touch('+str(rest["x"])+','+str(rest["y"])+')\n'),
+    'DRAG': lambda f,nowtimes, rest: f.write(nowtimes+'-'+str(rest["x"])+','+str(rest["y"])+'-drag touch('+str(rest["x"])+','+str(rest["y"])+')\n'),
+    'PRESS': lambda f,nowtimes, rest: f.write(nowtimes+'-100,500-press('+str(rest["name"])+')\n'),
+    'TYPE': lambda f,nowtimes, rest: f.write(nowtimes+'-100,500-TYPE('+str(rest["message"])+')\n'),
+    'WAIT': lambda f,nowtimes, rest: f.write(nowtimes+'-100,500-WAIT('+str(rest["seconds"])+')\n')
+    }
+
+def logToFile(logfile):
+    os.system('adb logcat -v time -s AndroidRuntime > '+logfile)
+# Process a single file for the specified device.
+def process_file(fp, device,f,outpath):
+    outImgpathName="img"
+    for line in fp:
+        if line.strip()=='':
+            continue
+        if line.startswith('#'):
+            continue
+		
+        (cmd, rest) = line.split('|')
+        try:
+            # Parse the pydict
+            rest = eval(rest)
+        except:
+            #print ' -------------debug:unable to parse options cmd --------------------- '
+            print '< unknown command >: ',cmd,' ,unable to parse options ',rest
+            continue
+
+        if cmd not in CMD_MAP:
+            print '< unknown command >: ',cmd
+            continue
+        #----------------------------------------------------------------------------------------------------------------------------
+        #先保存照片截图
+        nowtimes=time.strftime('%Y%m%d%H%M%S', time.localtime())
+        result = device.takeSnapshot()
+        result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
+        #----------------------------------------------------------------------------------------------------------------------------
+
+        print '< start excute command >: ',cmd,' ,param : ',rest
+		#执行模拟事件
+        CMD_MAP[cmd](device, rest)
+
+		
+        #----------------------------------------------------------------------------------------------------------------------------
+		#将命令写入到日志，用于给图片打码
+        if cmd  in CMD_MAPLog:
+            CMD_MAPLog[cmd](f,nowtimes, rest)
+        #print 'unable to parse options',rest,type(rest)
+        MonkeyRunner.sleep(2.0)
+        #----------------------------------------------------------------------------------------------------------------------------
+
+
+def main():
+    file = sys.argv[1]
+    fp = open(file, 'r')
+
+    print('---------------------- start cmd --------------------------')
+	
+    #----------------------------------------------------------------------------------------------------------------------------
+	#初始化系统路径
+    #config path
+    #currentTestName=time.strftime( '%Y%m%d_%H%M%S', time.localtime() )+'_SFA'
+    currentTestName=sys.argv[2]
+    basePath=sys.argv[3]
+    #basePath="g:/lwh/xwandou/code/monkeytest/"
+    print('< system propory > time : '+currentTestName  )
+    outpathName="out"
+    outImgpathName="img"
+    #basePath="g:/lwh/xwandou/code/monkeytest/"
+    outpath=basePath+outpathName+"/"+currentTestName+"/"
+    LOG_FILENAME=outpath+"log.txt"
+    #makedirs
+    os.makedirs(outpath+outImgpathName)
+    #----------------------------------------------------------------------------------------------------------------------------
+
+
+    device = MonkeyRunner.waitForConnection()
+    
+
+	
+    device.removePackage ('com.ebest.sfa') 
+    device.installPackage('E:/lwh/apk/SFADali-2.1.0.1-1230-03-beta.apk')
+	#定义要启动的Activity  
+    #componentName='com.motherbuy.bmec.android/com.motherbuy.bmec.android.WelcomeActivity'  
+    componentName='com.ebest.sfa/com.ebest.sfa.login.activity.LoginActivity'  
+    
+    loffilepath=outpath+"adblog.txt"
+    #logToFile(loffilepath)
+    t1 = threading.Thread(target=logToFile,args=(loffilepath))
+    t1.setDaemon(True)
+    #t1.start()
+
+    #启动特定的Activity  
+    device.startActivity(component=componentName) 
+
+    #----------------------------------------------------------------------------------------------------------------------------
+	#获取系统参数
+    ret = device.getProperty("build.device")
+    print('< system propory > device : '+str(ret)  )
+    screen_width = device.getProperty("display.width")
+    print('< system propory > display.width : '+str(screen_width)  )
+    screen_height = device.getProperty("display.height")
+    print('< system propory > display.height : '+str(screen_height)  )
+    #----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+    MonkeyRunner.sleep(3.0)
+
+    f=open(LOG_FILENAME,'w')
+
+    process_file(fp, device,f,outpath)
+    fp.close();
+
+
+    #----------------------------------------------------------------------------------------------------------------------------
+	#保存最后一次快照
+    nowtimes=time.strftime('%Y%m%d%H%M%S', time.localtime())
+    result = device.takeSnapshot()
+    result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
+    f.write(nowtimes+'-100,500-final page\n')
+    #----------------------------------------------------------------------------------------------------------------------------
+
+    f.close()
+
+    #----------------------------------------------------------------------------------------------------------------------------
+	#将照片添加水印
+    cmdcommand='java -jar '+basePath+'bin/ImageMarkClickLogo.jar  -cl c=#ff0000 s=50 out='+outpath
+    #cmdcommand='java -jar '+basePath+'bin/ImageMarkClickLogo.jar -l -cl c=#000000 s=50 out='+outpath
+    os.system(cmdcommand)
+    #----------------------------------------------------------------------------------------------------------------------------
+
+    
+    #t1.stop()
+    #t1.join()
+    
+    os.system('taskkill  /FI "WINDOWTITLE eq AndroidMonkeyLog"')
+    print('---------------------- end cmd --------------------------')
+    
+
+if __name__ == '__main__':
+    main()
+
+
+
+

@@ -1,0 +1,13 @@
+<section class="post" itemscope itemprop="blogPost">
+  
+    <a href="###section-url###" title="###section-title###" itemprop="url"  target="_blank">
+  
+    <h1 itemprop="name">###section-title###</h1>
+    
+     
+           <p itemprop="description" >###section-content###</p>
+        
+    
+    <time datetime="2014-12-05T05:48:39.000Z" itemprop="datePublished">###section-datetime###</time>
+  </a>
+</section>

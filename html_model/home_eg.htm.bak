@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Kevin &#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Kevin Liu">
+    
+    <link rel="icon" href="../html_model/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="../html_model/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="../html_model/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/blog/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/blog/"><img src="../html_model/img/logo.svg" alt="Kevin &#39;s blog" title="Kevin &#39;s blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/blog/" title="Kevin &#39;s blog">Kevin &#39;s blog</a></h1>
+				<h2 class="blog-motto">enjoy our life</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:xflour.com/blog">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main">
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/blog/2014/12/05/nginx简单负载均衡设置/" title="nginx简单负载均衡设置" itemprop="url">
+  
+    <h1 itemprop="name">nginx简单负载均衡设置</h1>
+    
+     
+           <p itemprop="description" >安装步骤
+1.到官网下载最新win版本连接：http://nginx.org/en/download.html
+2.安装到E文目录 我的E:\nginx-1.7.8
+3.进入安装目录 E:\nginx-1.7.8\conf\nginx.conf修改配置
+4.启动nginx.exe</p>
+        
+    
+    <time datetime="2014-12-05T05:48:39.000Z" itemprop="datePublished">2014-12-05</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/blog/2014/08/26/golang-环境搭建-之mongo连接/" title="golang 环境搭建 之mongo连接" itemprop="url">
+  
+    <h1 itemprop="name">golang 环境搭建 之mongo连接</h1>
+    
+     
+           <p itemprop="description" >##go IDE liteide
+
+最新版本集成自动补齐提醒
+需配置go的环境变量到ide里面
+
+mongo db 需到官网下载最新版本mongodb-win32-i386-2.4.11
+执行 bin\mongod.exe –dbpath .\data\db
+提示 waiting</p>
+        
+    
+    <time datetime="2014-08-26T05:38:07.000Z" itemprop="datePublished">2014-08-26</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/blog/2014/08/25/android动态layout解析/" title="android动态layout解析" itemprop="url">
+  
+    <h1 itemprop="name">android动态layout解析</h1>
+    
+     
+           <p itemprop="description" >项目地址：https://github.com/jixieshi999/juahya
+##juahya 是什么？一个基于android的动态解析android的layout.xml文件解析器，类似与html解析
+##juahya 能做什么？
+
+服务器远程配置android lay</p>
+        
+    
+    <time datetime="2014-08-25T09:54:57.000Z" itemprop="datePublished">2014-08-25</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/blog/2014/08/25/android插件机制/" title="android插件机制" itemprop="url">
+  
+    <h1 itemprop="name">android插件机制</h1>
+    
+     
+           <p itemprop="description" >项目地址：https://github.com/jixieshi999/WeiPlugin</p>
+        
+    
+    <time datetime="2014-08-25T03:56:11.000Z" itemprop="datePublished">2014-08-25</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/blog/1940/10/24/hello-world/" title="Hello World" itemprop="url">
+  
+    <h1 itemprop="name">Hello World</h1>
+    
+     
+           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
+        
+    
+    <time datetime="1940-10-24T02:26:18.955Z" itemprop="datePublished">1940-10-24</time>
+  </a>
+</section>
+
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://xflour.com/blog" target="_blank" title="Kevin Liu">Kevin Liu</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/blog/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+
+
+
+
+
+  </body>
+ </html>
