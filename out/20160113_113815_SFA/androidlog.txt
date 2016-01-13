@@ -1,0 +1,28 @@
+--------- beginning of system
+--------- beginning of main
+01-13 11:37:40.841 I/AndroidRuntime(20149): VM exiting with result code 0.
+01-13 11:37:41.181 D/AndroidRuntime(20552): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+01-13 11:37:41.181 D/AndroidRuntime(20552): CheckJNI is OFF
+01-13 11:37:41.181 I/AndroidRuntime(20552): readDownloadBoosterConfig: 'false'
+01-13 11:37:41.541 D/AndroidRuntime(20552): Calling main entry com.android.commands.am.Am
+01-13 11:37:41.671 D/AndroidRuntime(20552): Shutting down VM
+01-13 11:38:12.271 I/AndroidRuntime(19812): VM exiting with result code 30.
+01-13 11:38:16.381 D/AndroidRuntime(21246): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+01-13 11:38:16.391 D/AndroidRuntime(21246): CheckJNI is OFF
+01-13 11:38:16.391 I/AndroidRuntime(21246): readDownloadBoosterConfig: 'false'
+01-13 11:38:16.681 D/AndroidRuntime(21246): Calling main entry com.android.commands.monkey.Monkey
+01-13 11:38:18.361 D/AndroidRuntime(21270): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+01-13 11:38:18.371 D/AndroidRuntime(21270): CheckJNI is OFF
+01-13 11:38:18.371 I/AndroidRuntime(21270): readDownloadBoosterConfig: 'false'
+01-13 11:38:18.561 D/AndroidRuntime(21270): Calling main entry com.android.commands.pm.Pm
+01-13 11:38:19.621 I/AndroidRuntime(21270): VM exiting with result code 0.
+01-13 11:38:23.101 D/AndroidRuntime(21743): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+01-13 11:38:23.101 D/AndroidRuntime(21743): CheckJNI is OFF
+01-13 11:38:23.101 I/AndroidRuntime(21743): readDownloadBoosterConfig: 'false'
+01-13 11:38:23.291 D/AndroidRuntime(21743): Calling main entry com.android.commands.pm.Pm
+01-13 11:38:37.811 I/AndroidRuntime(21743): VM exiting with result code 0.
+01-13 11:38:38.771 D/AndroidRuntime(21914): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+01-13 11:38:38.811 D/AndroidRuntime(21914): CheckJNI is OFF
+01-13 11:38:38.811 I/AndroidRuntime(21914): readDownloadBoosterConfig: 'false'
+01-13 11:38:39.171 D/AndroidRuntime(21914): Calling main entry com.android.commands.am.Am
+01-13 11:38:39.221 D/AndroidRuntime(21914): Shutting down VM

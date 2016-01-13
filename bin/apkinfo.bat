@@ -18,7 +18,7 @@ for /l %%i in (1,1,200) do (
 :start
 ping 13.3.0.1 -n 1 -w 4000 >nul
 @echo %%i_%date:~0,4%%date:~5,2%%date:~8,2%_%time:~0,2%%time:~3,2%%time:~6,2%
-adb shell dumpsys meminfo %1 |grep "Dalvik">>%2\meminfo\%date:~0,4%%date:~5,2%%date:~8,2%_%time:~0,2%%time:~3,2%%time:~6,2%meminfo.txt
+adb shell dumpsys meminfo %1 |grep "TOTAL">>%2\meminfo\%date:~0,4%%date:~5,2%%date:~8,2%_%time:~0,2%%time:~3,2%%time:~6,2%meminfo.txt
 adb shell top -n 1 -d 0.5 | grep %1>>%2\cpuinfo\%date:~0,4%%date:~5,2%%date:~8,2%_%time:~0,2%%time:~3,2%%time:~6,2%cpuinfo.txt
 goto start
 )

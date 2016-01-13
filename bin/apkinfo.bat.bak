@@ -9,8 +9,8 @@ echo ----------------------开始测试------------------------------------
 ::adb shell dumpsys meminfo "eBest.mobile.android" |grep "TOTAL"
 
 
-mkdir %2\cpuinfo\
-mkdir %2\meminfo\
+if not exist %2\cpuinfo\ mkdir %2\cpuinfo\
+if not exist %2\meminfo\ mkdir %2\meminfo\
 
 ::ping方法用于等待或者休眠N秒
 ::for /l %%i in (1,1,200) do  ping 13.3.0.1 -n 1 -w 4000 >nul| @echo %%i|adb shell dumpsys meminfo %1 |grep "Dalvik">>%2\meminfo\meminfo.txt|adb shell top -n 1 -d 0.5 | grep %1>>%2\cpuinfo\cpuinfo.txt
