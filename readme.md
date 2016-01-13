@@ -1,5 +1,5 @@
 ###说明
-lowen 主要是用于android应用的自动化测试，并输出测试结果到html的框架
+lowen 基于monkeyrunner的android应用的自动化测试，并输出测试结果到html的框架
 仿腾讯[utest](http://auto.utest.qq.com/)测试框架
 
 代码有待完善，欢迎有兴趣的朋友一起讨论（目前报表里面使用echarts部分没有写数据处理逻辑，框架已搭好）
