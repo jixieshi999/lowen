@@ -2,7 +2,7 @@
 lowen 主要是用于android应用的自动化测试，并输出测试结果到html的框架
 仿腾讯[utest](http://auto.utest.qq.com/)测试框架
 
-代码有待完善，欢迎有兴趣的朋友一起讨论
+代码有待完善，欢迎有兴趣的朋友一起讨论（目前报表里面使用echarts部分没有写数据处理逻辑，框架已搭好）
 ###主框架代码
 bin\main.bat
 - 循环执行N个py脚本
@@ -22,6 +22,10 @@ bin\main.bat
 - 修改tools\monkey_playbackNew.py 里面的apk 路径 ,和包名
 - 修改tools\monkey_test.py 里面的apk 路径 ,和包名
 - 脚本修改完成直接运行lowen.bat
+	
+###运行环境
+- windows，安装sdk，jdk，python2.X
+- 涉及到bat脚本，python脚本，java 开发，android sdk里面的monkeyrunner框架使用等
 
 ###部分文件介绍
 1. monkey_recorder.py
@@ -65,4 +69,13 @@ bin\main.bat
 [报表明细](http://jixieshi999.github.io/lowen/out/20160112_162509_SFA/sh.htm)
 	
 [apk 信息提取参考链接](http://energykey.iteye.com/blog/1856173)
-	
+
+####输出报表（目前报表里面使用echarts部分没有写数据处理逻辑，框架已搭好）
+![输出报表](http://jixieshi999.github.io/lowen/detail.jpg )
+
+####操作记录
+![输出操作记录](http://jixieshi999.github.io/lowen/pic.jpg )
+####输出错误日志
+![输出错误日志](http://jixieshi999.github.io/lowen/log.jpg )
+####输出报表列表
+![输出报表列表](http://jixieshi999.github.io/lowen/list.jpg )
