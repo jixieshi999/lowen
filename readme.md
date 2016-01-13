@@ -64,11 +64,11 @@ bin\main.bat
 
 ###demo 地址
 
-[输出列表](http://jixieshi999.github.io/lowen/out/ )
+- 链接1：[输出列表](http://jixieshi999.github.io/lowen/out/ )
 
-[报表明细](http://jixieshi999.github.io/lowen/out/20160112_162509_SFA/sh.htm)
+- 链接2：[报表明细](http://jixieshi999.github.io/lowen/out/20160112_162509_SFA/sh.htm)
 	
-[apk 信息提取参考链接](http://energykey.iteye.com/blog/1856173)
+- 链接3：[apk 信息提取参考链接](http://energykey.iteye.com/blog/1856173)
 
 ####输出报表（目前报表里面使用echarts部分没有写数据处理逻辑，框架已搭好）
 ![输出报表](http://jixieshi999.github.io/lowen/detail.jpg )
