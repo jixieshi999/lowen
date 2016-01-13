@@ -38,6 +38,7 @@ option = {
         {
             name:'内存变化',
             type:'line',
+            smooth:true,
             data: ###opstionsxAxis###,
 	    markPoint : {
 		data : [
