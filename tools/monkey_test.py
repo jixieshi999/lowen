@@ -70,6 +70,7 @@ TOUCH|{'x':621,'y':549,'type':'downAndUp',}
 TOUCH|{'x':654,'y':858,'type':'downAndUp',}
 TOUCH|{'x':645,'y':541,'type':'downAndUp',}
 '''
+mr.sleep(2.0)
 for i in range(0, 10):
 	#先保存照片截图
 	nowtimes=time.strftime('%Y%m%d%H%M%S', time.localtime())

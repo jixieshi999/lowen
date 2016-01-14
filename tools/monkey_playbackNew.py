@@ -32,9 +32,13 @@ from com.android.monkeyrunner import MonkeyRunner
 
 # Lookup table to map command strings to functions that implement that
 # command.
+# MonkeyDevice.touch(x,y,type)
+# MonkeyDevice.type(message)
+# MonkeyDevice.drag(start,end,duration,steps)
+
 CMD_MAP = {
     'TOUCH': lambda dev, arg: dev.touch(**arg),
-    'DRAG': lambda dev, arg: dev.drag(**arg),
+    'DRAG': lambda dev, arg: dev.drag((int(arg["startx"]),int(arg["starty"])),(int(arg["endx"]),int(arg["endy"])),0.1,5),
     'PRESS': lambda dev, arg: dev.press(**arg),
     'TYPE': lambda dev, arg: dev.type(**arg),
     #'TYPE': lambda dev, arg: dev.shell(str(arg["message"])),
@@ -42,7 +46,8 @@ CMD_MAP = {
     }
 CMD_MAPLog = {
     'TOUCH': lambda f,nowtimes, rest: f.write(nowtimes+'-'+str(rest["x"])+','+str(rest["y"])+'-touch('+str(rest["x"])+','+str(rest["y"])+')\n'),
-    'DRAG': lambda f,nowtimes, rest: f.write(nowtimes+'-'+str(rest["x"])+','+str(rest["y"])+'-drag touch('+str(rest["x"])+','+str(rest["y"])+')\n'),
+    'DRAG': lambda f,nowtimes, rest: f.write(nowtimes+'-'+str(rest["startx"])+','+str(rest["starty"])+';'+str(rest["endx"])+','+str(rest["endy"])+'-from('+str(rest["startx"])+','+str(rest["starty"])+');to('+str(rest["endx"])+','+str(rest["endy"])+')\n'),
+		
     'PRESS': lambda f,nowtimes, rest: f.write(nowtimes+'-100,500-press('+str(rest["name"])+')\n'),
     'TYPE': lambda f,nowtimes, rest: f.write(nowtimes+'-100,500-TYPE('+str(rest["message"])+')\n'),
     'WAIT': lambda f,nowtimes, rest: f.write(nowtimes+'-100,500-WAIT('+str(rest["seconds"])+')\n')

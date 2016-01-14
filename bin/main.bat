@@ -25,7 +25,9 @@ start %basePath%\bin\apkinfo.bat com.ebest.sfa %basePath%out\%currentTestName%
 start %basePath%\bin\log.bat %basePath%out\%currentTestName%
 :: 
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\sfadaka2.mr  %currentTestName%  %basePath%
-call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199.mr  %currentTestName%  %basePath%
+::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199.mr  %currentTestName%  %basePath%
+::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199_qingjia.mr  %currentTestName%  %basePath%
+call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_SCH-I869_qingjia.mr  %currentTestName%  %basePath%
 
 ::关闭运行内存cpu日志记录
 taskkill  /FI "WINDOWTITLE eq AndroidInfo"
