@@ -27,6 +27,13 @@ bin\main.bat
 - windows，安装sdk，jdk，python2.X
 - 涉及到bat脚本，python脚本，java 开发，android sdk里面的monkeyrunner框架使用等
 
+###MR脚本语法（滑动事件做了修改,#开头为注释）
+- 点击事件：TOUCH|{'x':310,'y':326,'type':'downAndUp',}
+- 输入事件：TYPE|{'message':'1001',}
+- PRESS事件：PRESS|{'name':'BACK','type':'downAndUp',} PRESS|{'name':'MENU','type':'downAndUp',}
+- 等待事件：WAIT|{'seconds':1.0,}
+- DRAG事件：DRAG|{'startx':55,'starty':183,'endx':72,'endy':461,}
+
 ###部分文件介绍
 1. monkey_recorder.py
   -  主要用于录制点击等事件的脚本
