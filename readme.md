@@ -58,7 +58,8 @@ bin\main.bat
 注：如果输出html中文乱码，需要将所有html_model模板改为utf-8编码，jar里面控制的是utf-8编码
 
 ###eg:
-  -  G:\lowen>monkeyrunner g:\lowen\tools\monkey_playbackNew.py .\mr\sfadaka1.mr
+  -  lowen -s
+  -  ![启动命令](http://jixieshi999.github.io/lowen/cmd.jpg )
 
 
 
