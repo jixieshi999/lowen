@@ -12,8 +12,10 @@ echo -
 
 echo ----------------------开始测试妈妈购---------------------------------
 ::--------1.初始化路径，时间-------------
-set currentTestName=%date:~0,4%%date:~5,2%%date:~8,2%_%time:~0,2%%time:~3,2%%time:~6,2%_MMG
-set starttime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%time:~0,2%:%time:~3,2%:%time:~6,2%
+set currentHour=%time:~0,2%
+if "%time:~0,1%"==" " set currentHour=0%time:~1,1%
+set currentTestName=%date:~0,4%%date:~5,2%%date:~8,2%_%currentHour%%time:~3,2%%time:~6,2%_MMG
+set starttime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:~6,2%
 ::currentTestName表示每一次执行测试脚本的out输出主目录
 
 echo currentTestName:%currentTestName%
@@ -47,7 +49,9 @@ if %rrr%==0 set rrrstr=失败|echo --------------------脚本(%currentTestName%)运行
 
 
 ::--------7.输出html报表-------------
-set endtime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%time:~0,2%:%time:~3,2%:%time:~6,2%
+set currentHour=%time:~0,2%
+if "%time:~0,1%"==" " set currentHour=0%time:~1,1%
+set endtime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:~6,2%
 java -jar %basePath%\bin\HtmlOutPutCore.jar   out=%currentTestName% path=%basePath% -l   apkPath=G:\lwh\zhenkun\B2C1.apk aaptPath=%basePath%bin\aapt.exe result=%rrrstr% starttime=%starttime% endtime=%endtime%
 
 echo ----------------------结束测试妈妈购---------------------------------
@@ -56,9 +60,10 @@ echo -
 echo -
 echo -
 echo ----------------------开始测试sfa------------------------------------
-
-set currentTestName=%date:~0,4%%date:~5,2%%date:~8,2%_%time:~0,2%%time:~3,2%%time:~6,2%_SFA
-set starttime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%time:~0,2%:%time:~3,2%:%time:~6,2%
+set currentHour=%time:~0,2%
+if "%time:~0,1%"==" " set currentHour=0%time:~1,1%
+set currentTestName=%date:~0,4%%date:~5,2%%date:~8,2%_%currentHour%%time:~3,2%%time:~6,2%_SFA
+set starttime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:~6,2%
 ::set basePath=g:\lwh\xwandou\code\monkeytest\
 if not exist %basePath%out\%currentTestName% mkdir %basePath%out\%currentTestName%
 
@@ -79,7 +84,9 @@ set rrr=%errorlevel%
 ::if %rrr%==0 echo --------------------脚本(%currentTestName%)运行中Crash------------------- else echo 脚本(%currentTestName%)运行ok
 if %rrr%==0 set rrrstr=失败|echo --------------------脚本(%currentTestName%)运行中Crash------------------- else echo 脚本(%currentTestName%)运行ok
 
-set endtime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%time:~0,2%:%time:~3,2%:%time:~6,2%
+set currentHour=%time:~0,2%
+if "%time:~0,1%"==" " set currentHour=0%time:~1,1%
+set endtime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:~6,2%
 java -jar %basePath%\bin\HtmlOutPutCore.jar   out=%currentTestName% path=%basePath% -l apkPath=E:\lwh\apk\SFADali-2.1.0.1-1230-03-beta.apk aaptPath=%basePath%bin\aapt.exe result=%rrrstr% starttime=%starttime% endtime=%endtime%
 echo ----------------------结束测试sfa------------------------------------
 
