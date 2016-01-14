@@ -6,6 +6,46 @@ title bat自动化编译
 set basePath=%1
 echo basePath:%basePath%
 
+
+
+echo -
+echo -
+echo -
+echo ----------------------开始测试sfa------------------------------------
+set currentHour=%time:~0,2%
+if "%time:~0,1%"==" " set currentHour=0%time:~1,1%
+set currentTestName=%date:~0,4%%date:~5,2%%date:~8,2%_%currentHour%%time:~3,2%%time:~6,2%_SFA
+set starttime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:~6,2%
+::set basePath=g:\lwh\xwandou\code\monkeytest\
+if not exist %basePath%out\%currentTestName% mkdir %basePath%out\%currentTestName%
+
+::开启运行内存cpu日志记录
+start %basePath%\bin\apkinfo.bat com.ebest.sfa %basePath%out\%currentTestName%
+
+start %basePath%\bin\log.bat %basePath%out\%currentTestName%
+:: 
+::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\sfadaka2.mr  %currentTestName%  %basePath%
+call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199.mr  %currentTestName%  %basePath%
+
+::关闭运行内存cpu日志记录
+taskkill  /FI "WINDOWTITLE eq AndroidInfo"
+
+set rrrstr=成功
+
+findstr   "com.ebest.sfa" %basePath%out\%currentTestName%\androidlog.txt
+set rrr=%errorlevel%
+::if %rrr%==0 echo --------------------脚本(%currentTestName%)运行中Crash------------------- else echo 脚本(%currentTestName%)运行ok
+if %rrr%==0 set rrrstr=失败|echo --------------------脚本(%currentTestName%)运行中Crash------------------- else echo 脚本(%currentTestName%)运行ok
+
+set currentHour=%time:~0,2%
+if "%time:~0,1%"==" " set currentHour=0%time:~1,1%
+set endtime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:~6,2%
+java -jar %basePath%\bin\HtmlOutPutCore.jar   out=%currentTestName% path=%basePath% -l apkPath=E:\lwh\apk\SFADali-2.1.0.1-1230-03-beta.apk aaptPath=%basePath%bin\aapt.exe result=%rrrstr% starttime=%starttime% endtime=%endtime%
+echo ----------------------结束测试sfa------------------------------------
+
+
+
+
 echo -
 echo -
 echo -
@@ -55,41 +95,6 @@ set endtime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:
 java -jar %basePath%\bin\HtmlOutPutCore.jar   out=%currentTestName% path=%basePath% -l   apkPath=G:\lwh\zhenkun\B2C1.apk aaptPath=%basePath%bin\aapt.exe result=%rrrstr% starttime=%starttime% endtime=%endtime%
 
 echo ----------------------结束测试妈妈购---------------------------------
-
-echo -
-echo -
-echo -
-echo ----------------------开始测试sfa------------------------------------
-set currentHour=%time:~0,2%
-if "%time:~0,1%"==" " set currentHour=0%time:~1,1%
-set currentTestName=%date:~0,4%%date:~5,2%%date:~8,2%_%currentHour%%time:~3,2%%time:~6,2%_SFA
-set starttime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:~6,2%
-::set basePath=g:\lwh\xwandou\code\monkeytest\
-if not exist %basePath%out\%currentTestName% mkdir %basePath%out\%currentTestName%
-
-::开启运行内存cpu日志记录
-start %basePath%\bin\apkinfo.bat com.ebest.sfa %basePath%out\%currentTestName%
-
-start %basePath%\bin\log.bat %basePath%out\%currentTestName%
-:: 
-call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\sfadaka2.mr  %currentTestName%  %basePath%
-
-::关闭运行内存cpu日志记录
-taskkill  /FI "WINDOWTITLE eq AndroidInfo"
-
-set rrrstr=成功
-
-findstr   "com.ebest.sfa" %basePath%out\%currentTestName%\androidlog.txt
-set rrr=%errorlevel%
-::if %rrr%==0 echo --------------------脚本(%currentTestName%)运行中Crash------------------- else echo 脚本(%currentTestName%)运行ok
-if %rrr%==0 set rrrstr=失败|echo --------------------脚本(%currentTestName%)运行中Crash------------------- else echo 脚本(%currentTestName%)运行ok
-
-set currentHour=%time:~0,2%
-if "%time:~0,1%"==" " set currentHour=0%time:~1,1%
-set endtime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:~6,2%
-java -jar %basePath%\bin\HtmlOutPutCore.jar   out=%currentTestName% path=%basePath% -l apkPath=E:\lwh\apk\SFADali-2.1.0.1-1230-03-beta.apk aaptPath=%basePath%bin\aapt.exe result=%rrrstr% starttime=%starttime% endtime=%endtime%
-echo ----------------------结束测试sfa------------------------------------
-
 
 
 echo -

@@ -30,7 +30,7 @@ option = {
         {
             type : 'value',
             axisLabel : {
-                formatter: '{value} KB'
+                formatter: '{value} M'
             }
         }
     ],
