@@ -3,25 +3,45 @@ lowen 基于monkeyrunner的android应用的自动化测试，并输出测试结�
 仿腾讯[utest](http://auto.utest.qq.com/)测试框架
 
 代码有待完善，欢迎有兴趣的朋友一起讨论（目前报表里面使用echarts部分没有写数据处理逻辑，框架已搭好）
-###主框架代码
-bin\main.bat
+###主框架代码1
+bin\lowen_play.bat
 - 循环执行N个py脚本
 - 1.初始化路径，时间
 - 2.开启线程记录cpu，内存等日志
 - 3.开启线程记录adb log日志
 - 4.执行py脚本
-	- 4.1运行脚本
-	- 4.2批量处理截图加上水印（通过bin\ImageMarkClickLogo.jar）
-- 5.关闭记录日志的线程（关闭窗口）
-- 6.读取adb log日志 判断是否crash
-- 7.输出html报表
-		
-###usage
+- 5.批量处理截图加上水印（通过bin\ImageMarkClickLogo.jar）
+- 6.关闭记录日志的线程（关闭窗口）
+- 7.读取adb log日志 判断是否crash
+- 8.输出html报表
 
-- 修改bin\main.bat 里面的apk 路径 
-- 修改tools\monkey_playbackNew.py 里面的apk 路径 ,和包名
-- 修改tools\monkey_test.py 里面的apk 路径 ,和包名
-- 脚本修改完成直接运行lowen.bat
+###主框架代码2
+bin\launch.py   
+遍历mr文件夹下面的所有文件夹，执行mr子文件夹里面的所有mr脚本
+
+###usage
+例子1
+- 修改mr子目录下面的config.txt配置文件
+    + pkgkey 表示包名com.ebest.sfa.xxx
+    + apkPathkey apk安装包路径E:/apk/SFA-2.1.0.1-1230-03-beta.apk
+    + actkey apk启动activity 路径com.ebest.sfa.xxx/com.ebest.sfa.login.activity.LoginActivity
+    + moudlekey 暂时没用到，可以扩展到脚本里面
+    
+- 运行lowen -s 开始测试
+例子2
+- mr目录下新建测试目录，同理例子1配置config.txt
+- lowen -p 编辑mr脚本
+- 运行lowen -s 开始测试
+
+###mr脚本语法
+- 点击：TOUCH|{'x':310,'y':326,'type':'downAndUp',}
+- 输入：TYPE|{'message':'1001',}
+- 按系统键：PRESS|{'name':'BACK','type':'downAndUp',}
+- 滑动：DRAG|{'startx':55,'starty':461,'endx':72,'endy':183,}
+
+	通过lowen -p 编辑mr脚本，可以得到手机屏幕截图，点击截图，得到某一点的坐标，写入到mr脚本里面;
+	也可以直接导出到mr文件，但是导出不支持DRAG命令，需要手动编辑mr脚本添加DRAG命令
+	详见mr目录下面的例子
 	
 ###运行环境
 - windows，安装sdk，jdk，python2.X
