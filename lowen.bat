@@ -6,8 +6,12 @@
     goto help
 )
 @if %1==-v (
-    echo  
-    echo °æ±¾ºÅ:%version%
+    echo  .
+    python -V
+    echo  .
+    adb version
+    echo  .
+    echo Lowen°æ±¾ºÅ:%version%
     goto endBat
 )
 
