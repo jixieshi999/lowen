@@ -26,8 +26,8 @@ bin\launch.py
     + apkPathkey apk安装包路径E:/apk/SFA-2.1.0.1-1230-03-beta.apk
     + actkey apk启动activity 路径com.ebest.sfa.xxx/com.ebest.sfa.login.activity.LoginActivity
     + moudlekey 暂时没用到，可以扩展到脚本里面
-    
 - 运行lowen -s 开始测试
+
 例子2
 - mr目录下新建测试目录，同理例子1配置config.txt
 - lowen -p 编辑mr脚本
