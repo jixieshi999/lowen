@@ -13,12 +13,35 @@ print('---------------------- end start --------------------------')
 
 
 
+for argv in sys.argv:
+    print ('< system args >  : '+argv  )
+    if argv.startswith('mr='):
+        file = argv[3:]
+    if argv.startswith('basePath='):
+        basePath = argv[9:]
+    if argv.startswith('name='):
+        currentTestName = argv[5:]
+    if argv.startswith('screen='):
+        baseWidth=argv[7:].split('.')[0]
+        baseHeigth=argv[7:].split('.')[1]
+    if argv.startswith('scale='):
+        needScale=argv[6:]
+        baseWidth='480'
+        baseHeigth='800'
+    if argv.startswith('pkg='):
+        pkg=argv[4:]
+    if argv.startswith('apkPath='):
+        apkPath=argv[8:]
+    if argv.startswith('act='):
+        startActivity=argv[4:]
+		
+#print(needScale,baseWidth,baseHeigth)
 
-currentTestName=sys.argv[1]
-basePath=sys.argv[2]
+#currentTestName=sys.argv[1]
+#basePath=sys.argv[2]
 #basePath="g:/lwh/xwandou/code/monkeytest/"
 #currentTestName=time.strftime( '%Y%m%d_%H%M%S', time.localtime() )+'_MMG'
-print('< system propory > currentTestName : '+currentTestName  )
+#print('< system propory > currentTestName : '+currentTestName  )
 
 
 
@@ -28,10 +51,13 @@ if not device:
     print >> sys.stderr,"fail"
     sys.exit(1)
 
-device.removePackage ('com.motherbuy.bmec.android') 
-device.installPackage('G:/lwh/zhenkun/B2C1.apk')
+#device.removePackage ('com.motherbuy.bmec.android') 
+device.removePackage (pkg) 
+device.installPackage(apkPath)
+#device.installPackage('G:/lwh/zhenkun/B2C1.apk')
 #定义要启动的Activity  
-componentName='com.motherbuy.bmec.android/com.motherbuy.bmec.android.WelcomeActivity'  
+#componentName='com.motherbuy.bmec.android/com.motherbuy.bmec.android.WelcomeActivity'  
+componentName=startActivity
 #启动特定的Activity  
 device.startActivity(component=componentName) 
 
@@ -129,9 +155,9 @@ f.write(nowtimes+'-100,500-final page\n')
 #----------------------------------------------------------------------------------------------------------------------------
 
 f.close()
-cmdcommand='java -jar '+basePath+'bin/ImageMarkClickLogo.jar  -cl c=#000000 s=50 out='+outpath
-os.system(cmdcommand)
-os.system('taskkill  /FI "WINDOWTITLE eq AndroidMonkeyLog"')
+#cmdcommand='java -jar '+basePath+'bin/ImageMarkClickLogo.jar  -cl c=#000000 s=50 out='+outpath
+#os.system(cmdcommand)
+#os.system('taskkill  /FI "WINDOWTITLE eq AndroidMonkeyLog"')
 print('---------------------- end cmd --------------------------')
 
 sys.exit(0)

@@ -1,7 +1,7 @@
 @title bat自动化编译
 
 @echo off
-@set version='2.1'
+@set version=2.1
 @if '%1'=='' (
     goto help
 )
@@ -24,6 +24,7 @@
     echo                  -p     启动自定义脚本录制
     echo                  -c     清除out目录
     echo                  -s     启动测试服务
+    echo                  -monkey     启动monkey测试服务
     echo   
     echo  ----------------------------------------------------
     goto endBat
@@ -35,7 +36,8 @@
 )
 
 @if %1==-s (
-    call bin\main.bat %~dp0
+    ::call bin\main.bat %~dp0
+    call python bin\launch.py %~dp0
 )
 @if %1==-c (
     rm -rf out

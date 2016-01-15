@@ -95,7 +95,7 @@ def process_file(fp, device,f,outpath):
         #print 'unable to parse options',rest,type(rest)
         MonkeyRunner.sleep(2.0)
         #----------------------------------------------------------------------------------------------------------------------------
-
+#处理缩放坐标的脚本
 def process_file_scale(fp, device,f,outpath,rateX,rateY):
     outImgpathName="img"
     for line in fp:
@@ -164,7 +164,7 @@ def main():
     #basePath=sys.argv[3]
 	#是否需要以基准分辨率缩放,默认800*480
     for argv in sys.argv:
-        print argv
+        print ('< system args >  : '+argv  )
         if argv.startswith('mr='):
             file = argv[3:]
         if argv.startswith('basePath='):
@@ -178,11 +178,17 @@ def main():
             needScale=argv[6:]
             baseWidth='480'
             baseHeigth='800'
+        if argv.startswith('pkg='):
+            pkg=argv[4:]
+        if argv.startswith('apkPath='):
+            apkPath=argv[8:]
+        if argv.startswith('act='):
+            startActivity=argv[4:]
             
-    print(needScale,baseWidth,baseHeigth)
+    #print(needScale,baseWidth,baseHeigth)
     fp = open(file, 'r')
     #basePath="g:/lwh/xwandou/code/monkeytest/"
-    print('< system propory > time : '+currentTestName  )
+    #print('< system propory > time : '+currentTestName  )
     outpathName="out"
     outImgpathName="img"
     #basePath="g:/lwh/xwandou/code/monkeytest/"
@@ -197,11 +203,14 @@ def main():
     
 
 	
-    device.removePackage ('com.ebest.sfa') 
-    device.installPackage('E:/lwh/apk/SFADali-2.1.0.1-1230-03-beta.apk')
+    #device.removePackage ('com.ebest.sfa') 
+    device.removePackage (pkg) 
+    #device.installPackage('E:/lwh/apk/SFADali-2.1.0.1-1230-03-beta.apk')
+    device.installPackage(apkPath)
 	#定义要启动的Activity  
     #componentName='com.motherbuy.bmec.android/com.motherbuy.bmec.android.WelcomeActivity'  
-    componentName='com.ebest.sfa/com.ebest.sfa.login.activity.LoginActivity'  
+    #componentName='com.ebest.sfa/com.ebest.sfa.login.activity.LoginActivity'   
+    componentName=startActivity  
     
     loffilepath=outpath+"adblog.txt"
     #logToFile(loffilepath)
@@ -253,16 +262,16 @@ def main():
 
     #----------------------------------------------------------------------------------------------------------------------------
 	#将照片添加水印
-    cmdcommand='java -jar '+basePath+'bin/ImageMarkClickLogo.jar  -cl c=#ff0000 s=50 out='+outpath
+    #cmdcommand='java -jar '+basePath+'bin/ImageMarkClickLogo.jar  -cl c=#ff0000 s=50 out='+outpath
     #cmdcommand='java -jar '+basePath+'bin/ImageMarkClickLogo.jar -l -cl c=#000000 s=50 out='+outpath
-    os.system(cmdcommand)
+    #os.system(cmdcommand)
     #----------------------------------------------------------------------------------------------------------------------------
 
     
     #t1.stop()
     #t1.join()
     
-    os.system('taskkill  /FI "WINDOWTITLE eq AndroidMonkeyLog"')
+    #os.system('taskkill  /FI "WINDOWTITLE eq AndroidMonkeyLog"')
     print('---------------------- end cmd --------------------------')
     
 
