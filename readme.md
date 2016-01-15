@@ -33,15 +33,6 @@ bin\launch.py
 - lowen -p 编辑mr脚本
 - 运行lowen -s 开始测试
 
-###mr脚本语法
-- 点击：TOUCH|{'x':310,'y':326,'type':'downAndUp',}
-- 输入：TYPE|{'message':'1001',}
-- 按系统键：PRESS|{'name':'BACK','type':'downAndUp',}
-- 滑动：DRAG|{'startx':55,'starty':461,'endx':72,'endy':183,}
-
-	通过lowen -p 编辑mr脚本，可以得到手机屏幕截图，点击截图，得到某一点的坐标，写入到mr脚本里面;
-	也可以直接导出到mr文件，但是导出不支持DRAG命令，需要手动编辑mr脚本添加DRAG命令
-	详见mr目录下面的例子
 	
 ###运行环境
 - windows，安装sdk，jdk，python2.X
@@ -54,32 +45,29 @@ bin\launch.py
 - 等待事件：WAIT|{'seconds':1.0,}
 - DRAG事件：DRAG|{'startx':55,'starty':183,'endx':72,'endy':461,}
 
+	通过lowen -p 编辑mr脚本，可以得到手机屏幕截图，点击截图，得到某一点的坐标，写入到mr脚本里面;
+	也可以直接导出到mr文件，但是导出不支持DRAG命令，需要手动编辑mr脚本添加DRAG命令
+	详见mr目录下面的例子
+	
 ###部分文件介绍
 1. monkey_recorder.py
   -  主要用于录制点击等事件的脚本
 
-2. monkey_playback.py
-  -  主要用于执行monkey_recorder.py录制的mr结尾的脚本
-
-3. mr
+2. mr
   -  mr文件夹下面主要放录制的操作脚本
   -  sfadaka1.mr是sfa登陆到进入客户查询列表脚本-支持华为荣耀4A手机
 
 注：如果运行中文乱码，需要将所有py脚本改为utf-8编码
 
-4. testn.py 用于自动化随机模拟测试app的脚本，修改里面的启动app包名
-	eg:
-	G:\lowen>monkeyrunner tools\testn.py
-
 
 5. bin\ImageMarkClickLogo.jar
   -  用于图片添加水印的工具包
-  -  用法详见testn.py
+  -  用法详见bin\lowen_play.bat
 	'java -jar '+basePath+'bin/ImageMarkClickLogo.jar -l -cl c=#00ECdF s=50 out='+outpath
 
 6. bin\HtmlOutPutCore.jar  
   -  用于将测试结果生成html报表的工具包
-  -  用法见bin\main.bat
+  -  用法见bin\lowen_play.bat
 	java -jar %basePath%\bin\HtmlOutPutCore.jar   out=%currentTestName% path=%basePath% -l apkPath=beta.apk aaptPath=%basePath%bin\aapt.exe result=%rrrstr% starttime=%starttime% endtime=%endtime%
 
 注：如果输出html中文乱码，需要将所有html_model模板改为utf-8编码，jar里面控制的是utf-8编码
