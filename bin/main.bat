@@ -27,7 +27,7 @@ start %basePath%\bin\log.bat %basePath%out\%currentTestName%
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\sfadaka2.mr  %currentTestName%  %basePath%
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199.mr  %currentTestName%  %basePath%
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199_qingjia.mr  %currentTestName%  %basePath%
-call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_SCH-I869_qingjia.mr  %currentTestName%  %basePath%
+call monkeyrunner %basePath%tools\monkey_playbackNew.py mr=%basePath%mr\kasfa_SCH-I869_qingjia.mr  name=%currentTestName%  basePath=%basePath% scale=scale screen=480.800 
 
 ::关闭运行内存cpu日志记录
 taskkill  /FI "WINDOWTITLE eq AndroidInfo"

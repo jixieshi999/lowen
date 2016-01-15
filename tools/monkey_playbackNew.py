@@ -96,10 +96,63 @@ def process_file(fp, device,f,outpath):
         MonkeyRunner.sleep(2.0)
         #----------------------------------------------------------------------------------------------------------------------------
 
+def process_file_scale(fp, device,f,outpath,rateX,rateY):
+    outImgpathName="img"
+    for line in fp:
+        if line.strip()=='':
+            continue
+        if line.startswith('#'):
+            continue
+		
+        (cmd, rest) = line.split('|')
+        try:
+            # Parse the pydict
+            rest = eval(rest)
+        except:
+            #print ' -------------debug:unable to parse options cmd --------------------- '
+            print '< unknown command >: ',cmd,' ,unable to parse options ',rest
+            continue
+
+        if cmd not in CMD_MAP:
+            print '< unknown command >: ',cmd
+            continue
+        if cmd=='TOUCH':
+            print '< old command >: ',rest
+            rest["x"]=int(float(rest["x"])*rateX)
+            rest["y"]=int(float(rest["y"])*rateY)
+            print '< new command >: ',rest
+        if cmd=='DRAG':
+            print '< old command >: ',rest
+            rest["startx"]=int(float(rest["startx"])*rateX)
+            rest["starty"]=int(float(rest["starty"])*rateY)
+            rest["endx"]=int(float(rest["endx"])*rateX)
+            rest["endy"]=int(float(rest["endy"])*rateY)
+            print '< new command >: ',rest
+            
+        #----------------------------------------------------------------------------------------------------------------------------
+        #先保存照片截图
+        nowtimes=time.strftime('%Y%m%d%H%M%S', time.localtime())
+        result = device.takeSnapshot()
+        result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
+        #----------------------------------------------------------------------------------------------------------------------------
+
+        print '< start excute command >: ',cmd,' ,param : ',rest
+		#执行模拟事件
+        CMD_MAP[cmd](device, rest)
+
+		
+        #----------------------------------------------------------------------------------------------------------------------------
+		#将命令写入到日志，用于给图片打码
+        if cmd  in CMD_MAPLog:
+            CMD_MAPLog[cmd](f,nowtimes, rest)
+        #print 'unable to parse options',rest,type(rest)
+        MonkeyRunner.sleep(2.0)
+        #----------------------------------------------------------------------------------------------------------------------------
+
+
 
 def main():
-    file = sys.argv[1]
-    fp = open(file, 'r')
+    #file = sys.argv[1]
 
     print('---------------------- start cmd --------------------------')
 	
@@ -107,8 +160,27 @@ def main():
 	#初始化系统路径
     #config path
     #currentTestName=time.strftime( '%Y%m%d_%H%M%S', time.localtime() )+'_SFA'
-    currentTestName=sys.argv[2]
-    basePath=sys.argv[3]
+    #currentTestName=sys.argv[2]
+    #basePath=sys.argv[3]
+	#是否需要以基准分辨率缩放,默认800*480
+    for argv in sys.argv:
+        print argv
+        if argv.startswith('mr='):
+            file = argv[3:]
+        if argv.startswith('basePath='):
+            basePath = argv[9:]
+        if argv.startswith('name='):
+            currentTestName = argv[5:]
+        if argv.startswith('screen='):
+            baseWidth=argv[7:].split('.')[0]
+            baseHeigth=argv[7:].split('.')[1]
+        if argv.startswith('scale='):
+            needScale=argv[6:]
+            baseWidth='480'
+            baseHeigth='800'
+            
+    print(needScale,baseWidth,baseHeigth)
+    fp = open(file, 'r')
     #basePath="g:/lwh/xwandou/code/monkeytest/"
     print('< system propory > time : '+currentTestName  )
     outpathName="out"
@@ -160,7 +232,12 @@ def main():
 
     f=open(LOG_FILENAME,'w')
 
-    process_file(fp, device,f,outpath)
+    
+    if needScale.startswith('scale'):
+        process_file_scale(fp, device,f,outpath,float(screen_width)/float(baseWidth),float(screen_height)/float(baseHeigth))
+    else:
+        process_file(fp, device,f,outpath)
+        
     fp.close();
 
 
