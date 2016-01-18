@@ -1,1 +1,0 @@
-18598  2   0% S    67 1934536K 109620K  fg u0_a74   com.motherbuy.bmec.android

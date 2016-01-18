@@ -1,1 +1,0 @@
-  Dalvik Heap        0        0        0        0        0        0        0

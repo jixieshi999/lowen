@@ -1,1 +1,0 @@
-20647  0   2% D    28 1589484K  80124K  fg u0_a245  com.motherbuy.bmec.android

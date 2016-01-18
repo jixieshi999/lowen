@@ -1,0 +1,355 @@
+--------- beginning of /dev/log/main
+01-18 16:51:09.059 D/AndroidRuntime(13374): 
+01-18 16:51:09.059 D/AndroidRuntime(13374): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 16:51:09.059 D/AndroidRuntime(13374): CheckJNI is OFF
+01-18 16:51:09.059 D/AndroidRuntime(13374): setted country_code = CHINA
+01-18 16:51:09.059 D/AndroidRuntime(13374): setted countryiso_code = CN
+01-18 16:51:09.069 D/AndroidRuntime(13374): setted sales_code = CTC
+01-18 16:51:09.069 D/AndroidRuntime(13374): readGMSProperty: start
+01-18 16:51:09.069 D/AndroidRuntime(13374): readGMSProperty: already setted!!
+01-18 16:51:09.069 D/AndroidRuntime(13374): readGMSProperty: end
+01-18 16:51:09.069 D/AndroidRuntime(13374): addProductProperty: start
+01-18 16:51:09.609 D/AndroidRuntime(13374): Calling main entry com.android.commands.am.Am
+01-18 16:51:09.709 D/AndroidRuntime(13374): Shutting down VM
+01-18 16:51:09.719 I/AndroidRuntime(13374): NOTE: attach of thread 'Binder_3' failed
+01-18 16:56:09.039 D/AndroidRuntime(13647): 
+01-18 16:56:09.039 D/AndroidRuntime(13647): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 16:56:09.039 D/AndroidRuntime(13647): CheckJNI is OFF
+01-18 16:56:09.039 D/AndroidRuntime(13647): setted country_code = CHINA
+01-18 16:56:09.039 D/AndroidRuntime(13647): setted countryiso_code = CN
+01-18 16:56:09.039 D/AndroidRuntime(13647): setted sales_code = CTC
+01-18 16:56:09.039 D/AndroidRuntime(13647): readGMSProperty: start
+01-18 16:56:09.039 D/AndroidRuntime(13647): readGMSProperty: already setted!!
+01-18 16:56:09.039 D/AndroidRuntime(13647): readGMSProperty: end
+01-18 16:56:09.039 D/AndroidRuntime(13647): addProductProperty: start
+01-18 16:56:09.639 D/AndroidRuntime(13647): Calling main entry com.android.commands.am.Am
+01-18 16:56:09.749 D/AndroidRuntime(13647): Shutting down VM
+01-18 16:56:09.759 I/AndroidRuntime(13647): NOTE: attach of thread 'Binder_3' failed
+01-18 17:01:09.029 D/AndroidRuntime(13847): 
+01-18 17:01:09.029 D/AndroidRuntime(13847): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:01:09.029 D/AndroidRuntime(13847): CheckJNI is OFF
+01-18 17:01:09.029 D/AndroidRuntime(13847): setted country_code = CHINA
+01-18 17:01:09.029 D/AndroidRuntime(13847): setted countryiso_code = CN
+01-18 17:01:09.029 D/AndroidRuntime(13847): setted sales_code = CTC
+01-18 17:01:09.039 D/AndroidRuntime(13847): readGMSProperty: start
+01-18 17:01:09.039 D/AndroidRuntime(13847): readGMSProperty: already setted!!
+01-18 17:01:09.039 D/AndroidRuntime(13847): readGMSProperty: end
+01-18 17:01:09.039 D/AndroidRuntime(13847): addProductProperty: start
+01-18 17:01:09.589 D/AndroidRuntime(13847): Calling main entry com.android.commands.am.Am
+01-18 17:01:09.739 D/AndroidRuntime(13847): Shutting down VM
+01-18 17:01:09.739 I/AndroidRuntime(13847): NOTE: attach of thread 'Binder_3' failed
+01-18 17:01:36.309 D/AndroidRuntime(13892): 
+01-18 17:01:36.309 D/AndroidRuntime(13892): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:01:36.309 D/AndroidRuntime(13892): CheckJNI is OFF
+01-18 17:01:36.319 D/AndroidRuntime(13892): setted country_code = CHINA
+01-18 17:01:36.319 D/AndroidRuntime(13892): setted countryiso_code = CN
+01-18 17:01:36.319 D/AndroidRuntime(13892): setted sales_code = CTC
+01-18 17:01:36.319 D/AndroidRuntime(13892): readGMSProperty: start
+01-18 17:01:36.319 D/AndroidRuntime(13892): readGMSProperty: already setted!!
+01-18 17:01:36.319 D/AndroidRuntime(13892): readGMSProperty: end
+01-18 17:01:36.319 D/AndroidRuntime(13892): addProductProperty: start
+01-18 17:01:36.839 D/AndroidRuntime(13892): Calling main entry com.android.commands.monkey.Monkey
+01-18 17:01:38.409 D/AndroidRuntime(13939): 
+01-18 17:01:38.409 D/AndroidRuntime(13939): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:01:38.409 D/AndroidRuntime(13939): CheckJNI is OFF
+01-18 17:01:38.419 D/AndroidRuntime(13939): setted country_code = CHINA
+01-18 17:01:38.419 D/AndroidRuntime(13939): setted countryiso_code = CN
+01-18 17:01:38.419 D/AndroidRuntime(13939): setted sales_code = CTC
+01-18 17:01:38.419 D/AndroidRuntime(13939): readGMSProperty: start
+01-18 17:01:38.419 D/AndroidRuntime(13939): readGMSProperty: already setted!!
+01-18 17:01:38.419 D/AndroidRuntime(13939): readGMSProperty: end
+01-18 17:01:38.429 D/AndroidRuntime(13939): addProductProperty: start
+01-18 17:01:39.099 D/AndroidRuntime(13939): Calling main entry com.android.commands.pm.Pm
+01-18 17:01:41.529 D/AndroidRuntime(13939): Shutting down VM
+01-18 17:01:41.529 I/AndroidRuntime(13939): NOTE: attach of thread 'Binder_3' failed
+01-18 17:01:52.729 D/AndroidRuntime(14256): 
+01-18 17:01:52.729 D/AndroidRuntime(14256): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:01:52.739 D/AndroidRuntime(14256): CheckJNI is OFF
+01-18 17:01:52.789 D/AndroidRuntime(14256): setted country_code = CHINA
+01-18 17:01:52.789 D/AndroidRuntime(14256): setted countryiso_code = CN
+01-18 17:01:52.799 D/AndroidRuntime(14256): setted sales_code = CTC
+01-18 17:01:52.799 D/AndroidRuntime(14256): readGMSProperty: start
+01-18 17:01:52.799 D/AndroidRuntime(14256): readGMSProperty: already setted!!
+01-18 17:01:52.799 D/AndroidRuntime(14256): readGMSProperty: end
+01-18 17:01:52.799 D/AndroidRuntime(14256): addProductProperty: start
+01-18 17:01:54.409 D/AndroidRuntime(14256): Calling main entry com.android.commands.pm.Pm
+01-18 17:02:16.919 D/AndroidRuntime(14256): Shutting down VM
+01-18 17:02:18.669 D/AndroidRuntime(14835): 
+01-18 17:02:18.669 D/AndroidRuntime(14835): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:02:18.669 D/AndroidRuntime(14835): CheckJNI is OFF
+01-18 17:02:19.029 D/AndroidRuntime(14835): setted country_code = CHINA
+01-18 17:02:19.029 D/AndroidRuntime(14835): setted countryiso_code = CN
+01-18 17:02:19.129 D/AndroidRuntime(14835): setted sales_code = CTC
+01-18 17:02:19.149 D/AndroidRuntime(14835): readGMSProperty: start
+01-18 17:02:19.149 D/AndroidRuntime(14835): readGMSProperty: already setted!!
+01-18 17:02:19.149 D/AndroidRuntime(14835): readGMSProperty: end
+01-18 17:02:19.149 D/AndroidRuntime(14835): addProductProperty: start
+01-18 17:02:20.319 D/AndroidRuntime(14835): Calling main entry com.android.commands.am.Am
+01-18 17:02:20.529 D/AndroidRuntime(14835): Shutting down VM
+01-18 17:04:00.189 I/AndroidRuntime(13892): VM exiting with result code 36.
+01-18 17:04:07.009 D/AndroidRuntime(16571): 
+01-18 17:04:07.009 D/AndroidRuntime(16571): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:04:07.009 D/AndroidRuntime(16571): CheckJNI is OFF
+01-18 17:04:07.009 D/AndroidRuntime(16571): setted country_code = CHINA
+01-18 17:04:07.009 D/AndroidRuntime(16571): setted countryiso_code = CN
+01-18 17:04:07.019 D/AndroidRuntime(16571): setted sales_code = CTC
+01-18 17:04:07.019 D/AndroidRuntime(16571): readGMSProperty: start
+01-18 17:04:07.019 D/AndroidRuntime(16571): readGMSProperty: already setted!!
+01-18 17:04:07.019 D/AndroidRuntime(16571): readGMSProperty: end
+01-18 17:04:07.019 D/AndroidRuntime(16571): addProductProperty: start
+01-18 17:04:08.019 D/AndroidRuntime(16571): Calling main entry com.android.commands.monkey.Monkey
+01-18 17:04:09.749 D/AndroidRuntime(16609): 
+01-18 17:04:09.749 D/AndroidRuntime(16609): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:04:09.749 D/AndroidRuntime(16609): CheckJNI is OFF
+01-18 17:04:09.749 D/AndroidRuntime(16609): setted country_code = CHINA
+01-18 17:04:09.749 D/AndroidRuntime(16609): setted countryiso_code = CN
+01-18 17:04:09.749 D/AndroidRuntime(16609): setted sales_code = CTC
+01-18 17:04:09.749 D/AndroidRuntime(16609): readGMSProperty: start
+01-18 17:04:09.749 D/AndroidRuntime(16609): readGMSProperty: already setted!!
+01-18 17:04:09.749 D/AndroidRuntime(16609): readGMSProperty: end
+01-18 17:04:09.749 D/AndroidRuntime(16609): addProductProperty: start
+01-18 17:04:10.299 D/AndroidRuntime(16609): Calling main entry com.android.commands.pm.Pm
+01-18 17:04:12.449 D/AndroidRuntime(16609): Shutting down VM
+01-18 17:04:12.479 I/AndroidRuntime(16609): NOTE: attach of thread 'Binder_3' failed
+01-18 17:04:21.899 D/AndroidRuntime(16841): 
+01-18 17:04:21.899 D/AndroidRuntime(16841): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:04:21.899 D/AndroidRuntime(16841): CheckJNI is OFF
+01-18 17:04:21.899 D/AndroidRuntime(16841): setted country_code = CHINA
+01-18 17:04:21.909 D/AndroidRuntime(16841): setted countryiso_code = CN
+01-18 17:04:21.909 D/AndroidRuntime(16841): setted sales_code = CTC
+01-18 17:04:21.919 D/AndroidRuntime(16841): readGMSProperty: start
+01-18 17:04:21.919 D/AndroidRuntime(16841): readGMSProperty: already setted!!
+01-18 17:04:21.919 D/AndroidRuntime(16841): readGMSProperty: end
+01-18 17:04:21.919 D/AndroidRuntime(16841): addProductProperty: start
+01-18 17:04:22.929 D/AndroidRuntime(16841): Calling main entry com.android.commands.pm.Pm
+01-18 17:04:41.039 D/AndroidRuntime(16841): Shutting down VM
+01-18 17:04:41.049 I/AndroidRuntime(16841): NOTE: attach of thread 'Binder_3' failed
+01-18 17:04:42.089 D/AndroidRuntime(17317): 
+01-18 17:04:42.089 D/AndroidRuntime(17317): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:04:42.089 D/AndroidRuntime(17317): CheckJNI is OFF
+01-18 17:04:42.099 D/AndroidRuntime(17317): setted country_code = CHINA
+01-18 17:04:42.099 D/AndroidRuntime(17317): setted countryiso_code = CN
+01-18 17:04:42.109 D/AndroidRuntime(17317): setted sales_code = CTC
+01-18 17:04:42.119 D/AndroidRuntime(17317): readGMSProperty: start
+01-18 17:04:42.119 D/AndroidRuntime(17317): readGMSProperty: already setted!!
+01-18 17:04:42.119 D/AndroidRuntime(17317): readGMSProperty: end
+01-18 17:04:42.119 D/AndroidRuntime(17317): addProductProperty: start
+01-18 17:04:43.579 D/AndroidRuntime(17317): Calling main entry com.android.commands.am.Am
+01-18 17:04:43.869 D/AndroidRuntime(17317): Shutting down VM
+01-18 17:04:43.909 I/AndroidRuntime(17317): NOTE: attach of thread 'Binder_3' failed
+01-18 17:06:09.669 D/AndroidRuntime(18796): 
+01-18 17:06:09.669 D/AndroidRuntime(18796): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:06:09.669 D/AndroidRuntime(18796): CheckJNI is OFF
+01-18 17:06:09.679 D/AndroidRuntime(18796): setted country_code = CHINA
+01-18 17:06:09.679 D/AndroidRuntime(18796): setted countryiso_code = CN
+01-18 17:06:09.679 D/AndroidRuntime(18796): setted sales_code = CTC
+01-18 17:06:09.689 D/AndroidRuntime(18796): readGMSProperty: start
+01-18 17:06:09.689 D/AndroidRuntime(18796): readGMSProperty: already setted!!
+01-18 17:06:09.689 D/AndroidRuntime(18796): readGMSProperty: end
+01-18 17:06:09.689 D/AndroidRuntime(18796): addProductProperty: start
+01-18 17:06:11.479 D/AndroidRuntime(18796): Calling main entry com.android.commands.am.Am
+01-18 17:06:11.659 D/AndroidRuntime(18796): Shutting down VM
+01-18 17:06:11.659 I/AndroidRuntime(18796): NOTE: attach of thread 'Binder_3' failed
+01-18 17:07:22.889 I/AndroidRuntime(16571): VM exiting with result code 90.
+01-18 17:07:30.349 D/AndroidRuntime(19677): 
+01-18 17:07:30.349 D/AndroidRuntime(19677): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:07:30.349 D/AndroidRuntime(19677): CheckJNI is OFF
+01-18 17:07:30.349 D/AndroidRuntime(19677): setted country_code = CHINA
+01-18 17:07:30.349 D/AndroidRuntime(19677): setted countryiso_code = CN
+01-18 17:07:30.349 D/AndroidRuntime(19677): setted sales_code = CTC
+01-18 17:07:30.359 D/AndroidRuntime(19677): readGMSProperty: start
+01-18 17:07:30.359 D/AndroidRuntime(19677): readGMSProperty: already setted!!
+01-18 17:07:30.359 D/AndroidRuntime(19677): readGMSProperty: end
+01-18 17:07:30.359 D/AndroidRuntime(19677): addProductProperty: start
+01-18 17:07:31.149 D/AndroidRuntime(19677): Calling main entry com.android.commands.monkey.Monkey
+01-18 17:07:32.219 D/AndroidRuntime(19725): 
+01-18 17:07:32.219 D/AndroidRuntime(19725): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:07:32.219 D/AndroidRuntime(19725): CheckJNI is OFF
+01-18 17:07:32.219 D/AndroidRuntime(19725): setted country_code = CHINA
+01-18 17:07:32.219 D/AndroidRuntime(19725): setted countryiso_code = CN
+01-18 17:07:32.229 D/AndroidRuntime(19725): setted sales_code = CTC
+01-18 17:07:32.229 D/AndroidRuntime(19725): readGMSProperty: start
+01-18 17:07:32.229 D/AndroidRuntime(19725): readGMSProperty: already setted!!
+01-18 17:07:32.229 D/AndroidRuntime(19725): readGMSProperty: end
+01-18 17:07:32.229 D/AndroidRuntime(19725): addProductProperty: start
+01-18 17:07:32.779 D/AndroidRuntime(19725): Calling main entry com.android.commands.pm.Pm
+01-18 17:07:34.479 D/AndroidRuntime(19725): Shutting down VM
+01-18 17:07:47.259 D/AndroidRuntime(20030): 
+01-18 17:07:47.259 D/AndroidRuntime(20030): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:07:47.259 D/AndroidRuntime(20030): CheckJNI is OFF
+01-18 17:07:47.259 D/AndroidRuntime(20030): setted country_code = CHINA
+01-18 17:07:47.259 D/AndroidRuntime(20030): setted countryiso_code = CN
+01-18 17:07:47.269 D/AndroidRuntime(20030): setted sales_code = CTC
+01-18 17:07:47.279 D/AndroidRuntime(20030): readGMSProperty: start
+01-18 17:07:47.279 D/AndroidRuntime(20030): readGMSProperty: already setted!!
+01-18 17:07:47.289 D/AndroidRuntime(20030): readGMSProperty: end
+01-18 17:07:47.289 D/AndroidRuntime(20030): addProductProperty: start
+01-18 17:07:48.759 D/AndroidRuntime(20030): Calling main entry com.android.commands.pm.Pm
+01-18 17:08:05.389 D/AndroidRuntime(20030): Shutting down VM
+01-18 17:08:06.469 D/AndroidRuntime(20452): 
+01-18 17:08:06.469 D/AndroidRuntime(20452): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:08:06.469 D/AndroidRuntime(20452): CheckJNI is OFF
+01-18 17:08:06.479 D/AndroidRuntime(20452): setted country_code = CHINA
+01-18 17:08:06.479 D/AndroidRuntime(20452): setted countryiso_code = CN
+01-18 17:08:06.489 D/AndroidRuntime(20452): setted sales_code = CTC
+01-18 17:08:06.499 D/AndroidRuntime(20452): readGMSProperty: start
+01-18 17:08:06.499 D/AndroidRuntime(20452): readGMSProperty: already setted!!
+01-18 17:08:06.499 D/AndroidRuntime(20452): readGMSProperty: end
+01-18 17:08:06.499 D/AndroidRuntime(20452): addProductProperty: start
+01-18 17:08:07.899 D/AndroidRuntime(20452): Calling main entry com.android.commands.am.Am
+01-18 17:08:08.199 D/AndroidRuntime(20452): Shutting down VM
+01-18 17:08:08.219 I/AndroidRuntime(20452): NOTE: attach of thread 'Binder_3' failed
+01-18 17:09:46.349 I/AndroidRuntime(19677): VM exiting with result code 36.
+01-18 17:09:53.129 D/AndroidRuntime(22099): 
+01-18 17:09:53.129 D/AndroidRuntime(22099): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:09:53.129 D/AndroidRuntime(22099): CheckJNI is OFF
+01-18 17:09:53.139 D/AndroidRuntime(22099): setted country_code = CHINA
+01-18 17:09:53.139 D/AndroidRuntime(22099): setted countryiso_code = CN
+01-18 17:09:53.139 D/AndroidRuntime(22099): setted sales_code = CTC
+01-18 17:09:53.149 D/AndroidRuntime(22099): readGMSProperty: start
+01-18 17:09:53.149 D/AndroidRuntime(22099): readGMSProperty: already setted!!
+01-18 17:09:53.149 D/AndroidRuntime(22099): readGMSProperty: end
+01-18 17:09:53.149 D/AndroidRuntime(22099): addProductProperty: start
+01-18 17:09:54.019 D/AndroidRuntime(22099): Calling main entry com.android.commands.monkey.Monkey
+01-18 17:09:55.989 D/AndroidRuntime(22171): 
+01-18 17:09:55.989 D/AndroidRuntime(22171): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:09:55.989 D/AndroidRuntime(22171): CheckJNI is OFF
+01-18 17:09:55.989 D/AndroidRuntime(22171): setted country_code = CHINA
+01-18 17:09:55.989 D/AndroidRuntime(22171): setted countryiso_code = CN
+01-18 17:09:55.989 D/AndroidRuntime(22171): setted sales_code = CTC
+01-18 17:09:55.999 D/AndroidRuntime(22171): readGMSProperty: start
+01-18 17:09:55.999 D/AndroidRuntime(22171): readGMSProperty: already setted!!
+01-18 17:09:55.999 D/AndroidRuntime(22171): readGMSProperty: end
+01-18 17:09:55.999 D/AndroidRuntime(22171): addProductProperty: start
+01-18 17:09:56.549 D/AndroidRuntime(22171): Calling main entry com.android.commands.pm.Pm
+01-18 17:09:58.399 D/AndroidRuntime(22171): Shutting down VM
+01-18 17:09:58.419 I/AndroidRuntime(22171): NOTE: attach of thread 'Binder_3' failed
+01-18 17:10:07.449 D/AndroidRuntime(22460): 
+01-18 17:10:07.449 D/AndroidRuntime(22460): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:10:07.449 D/AndroidRuntime(22460): CheckJNI is OFF
+01-18 17:10:07.459 D/AndroidRuntime(22460): setted country_code = CHINA
+01-18 17:10:07.459 D/AndroidRuntime(22460): setted countryiso_code = CN
+01-18 17:10:07.479 D/AndroidRuntime(22460): setted sales_code = CTC
+01-18 17:10:07.499 D/AndroidRuntime(22460): readGMSProperty: start
+01-18 17:10:07.499 D/AndroidRuntime(22460): readGMSProperty: already setted!!
+01-18 17:10:07.499 D/AndroidRuntime(22460): readGMSProperty: end
+01-18 17:10:07.499 D/AndroidRuntime(22460): addProductProperty: start
+01-18 17:10:09.239 D/AndroidRuntime(22460): Calling main entry com.android.commands.pm.Pm
+01-18 17:10:25.659 D/AndroidRuntime(22460): Shutting down VM
+01-18 17:10:25.689 I/AndroidRuntime(22460): NOTE: attach of thread 'Binder_3' failed
+01-18 17:10:27.489 D/AndroidRuntime(22854): 
+01-18 17:10:27.489 D/AndroidRuntime(22854): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:10:27.489 D/AndroidRuntime(22854): CheckJNI is OFF
+01-18 17:10:27.509 D/AndroidRuntime(22854): setted country_code = CHINA
+01-18 17:10:27.509 D/AndroidRuntime(22854): setted countryiso_code = CN
+01-18 17:10:27.509 D/AndroidRuntime(22854): setted sales_code = CTC
+01-18 17:10:27.519 D/AndroidRuntime(22854): readGMSProperty: start
+01-18 17:10:27.519 D/AndroidRuntime(22854): readGMSProperty: already setted!!
+01-18 17:10:27.519 D/AndroidRuntime(22854): readGMSProperty: end
+01-18 17:10:27.519 D/AndroidRuntime(22854): addProductProperty: start
+01-18 17:10:28.819 D/AndroidRuntime(22854): Calling main entry com.android.commands.am.Am
+01-18 17:10:29.119 D/AndroidRuntime(22854): Shutting down VM
+01-18 17:10:29.139 I/AndroidRuntime(22854): NOTE: attach of thread 'Binder_3' failed
+01-18 17:11:09.669 D/AndroidRuntime(23688): 
+01-18 17:11:09.669 D/AndroidRuntime(23688): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:11:09.669 D/AndroidRuntime(23688): CheckJNI is OFF
+01-18 17:11:09.669 D/AndroidRuntime(23688): setted country_code = CHINA
+01-18 17:11:09.679 D/AndroidRuntime(23688): setted countryiso_code = CN
+01-18 17:11:09.679 D/AndroidRuntime(23688): setted sales_code = CTC
+01-18 17:11:09.689 D/AndroidRuntime(23688): readGMSProperty: start
+01-18 17:11:09.689 D/AndroidRuntime(23688): readGMSProperty: already setted!!
+01-18 17:11:09.689 D/AndroidRuntime(23688): readGMSProperty: end
+01-18 17:11:09.689 D/AndroidRuntime(23688): addProductProperty: start
+01-18 17:11:10.599 D/AndroidRuntime(23688): Calling main entry com.android.commands.am.Am
+01-18 17:11:10.729 D/AndroidRuntime(23688): Shutting down VM
+01-18 17:11:10.739 I/AndroidRuntime(23688): NOTE: attach of thread 'Binder_3' failed
+01-18 17:13:08.069 I/AndroidRuntime(22099): VM exiting with result code 90.
+01-18 17:13:44.019 D/AndroidRuntime(25039): 
+01-18 17:13:44.019 D/AndroidRuntime(25039): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:13:44.019 D/AndroidRuntime(25039): CheckJNI is OFF
+01-18 17:13:44.019 D/AndroidRuntime(25039): setted country_code = CHINA
+01-18 17:13:44.019 D/AndroidRuntime(25039): setted countryiso_code = CN
+01-18 17:13:44.019 D/AndroidRuntime(25039): setted sales_code = CTC
+01-18 17:13:44.029 D/AndroidRuntime(25039): readGMSProperty: start
+01-18 17:13:44.029 D/AndroidRuntime(25039): readGMSProperty: already setted!!
+01-18 17:13:44.029 D/AndroidRuntime(25039): readGMSProperty: end
+01-18 17:13:44.029 D/AndroidRuntime(25039): addProductProperty: start
+01-18 17:13:44.839 D/AndroidRuntime(25039): Calling main entry com.android.commands.am.Am
+01-18 17:13:44.999 D/AndroidRuntime(25039): Shutting down VM
+01-18 17:13:45.019 I/AndroidRuntime(25039): NOTE: attach of thread 'Binder_3' failed
+--------- beginning of /dev/log/system
+01-18 17:16:09.529 D/AndroidRuntime(25725): 
+01-18 17:16:09.529 D/AndroidRuntime(25725): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:16:09.529 D/AndroidRuntime(25725): CheckJNI is OFF
+01-18 17:16:09.529 D/AndroidRuntime(25725): setted country_code = CHINA
+01-18 17:16:09.529 D/AndroidRuntime(25725): setted countryiso_code = CN
+01-18 17:16:09.539 D/AndroidRuntime(25725): setted sales_code = CTC
+01-18 17:16:09.539 D/AndroidRuntime(25725): readGMSProperty: start
+01-18 17:16:09.539 D/AndroidRuntime(25725): readGMSProperty: already setted!!
+01-18 17:16:09.539 D/AndroidRuntime(25725): readGMSProperty: end
+01-18 17:16:09.539 D/AndroidRuntime(25725): addProductProperty: start
+01-18 17:16:10.579 D/AndroidRuntime(25725): Calling main entry com.android.commands.am.Am
+01-18 17:16:10.689 D/AndroidRuntime(25725): Shutting down VM
+01-18 17:16:10.699 I/AndroidRuntime(25725): NOTE: attach of thread 'Binder_3' failed
+01-18 17:21:01.079 D/AndroidRuntime(25868): 
+01-18 17:21:01.079 D/AndroidRuntime(25868): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:21:01.079 D/AndroidRuntime(25868): CheckJNI is OFF
+01-18 17:21:01.079 D/AndroidRuntime(25868): setted country_code = CHINA
+01-18 17:21:01.079 D/AndroidRuntime(25868): setted countryiso_code = CN
+01-18 17:21:01.079 D/AndroidRuntime(25868): setted sales_code = CTC
+01-18 17:21:01.089 D/AndroidRuntime(25868): readGMSProperty: start
+01-18 17:21:01.089 D/AndroidRuntime(25868): readGMSProperty: already setted!!
+01-18 17:21:01.089 D/AndroidRuntime(25868): readGMSProperty: end
+01-18 17:21:01.089 D/AndroidRuntime(25868): addProductProperty: start
+01-18 17:21:01.749 D/AndroidRuntime(25868): Calling main entry com.android.commands.monkey.Monkey
+01-18 17:21:03.179 D/AndroidRuntime(25906): 
+01-18 17:21:03.179 D/AndroidRuntime(25906): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:21:03.179 D/AndroidRuntime(25906): CheckJNI is OFF
+01-18 17:21:03.179 D/AndroidRuntime(25906): setted country_code = CHINA
+01-18 17:21:03.179 D/AndroidRuntime(25906): setted countryiso_code = CN
+01-18 17:21:03.179 D/AndroidRuntime(25906): setted sales_code = CTC
+01-18 17:21:03.189 D/AndroidRuntime(25906): readGMSProperty: start
+01-18 17:21:03.189 D/AndroidRuntime(25906): readGMSProperty: already setted!!
+01-18 17:21:03.189 D/AndroidRuntime(25906): readGMSProperty: end
+01-18 17:21:03.189 D/AndroidRuntime(25906): addProductProperty: start
+01-18 17:21:03.819 D/AndroidRuntime(25906): Calling main entry com.android.commands.pm.Pm
+01-18 17:21:06.939 D/AndroidRuntime(25906): Shutting down VM
+01-18 17:21:09.229 D/AndroidRuntime(26056): 
+01-18 17:21:09.229 D/AndroidRuntime(26056): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:21:09.229 D/AndroidRuntime(26056): CheckJNI is OFF
+01-18 17:21:09.429 D/AndroidRuntime(26056): setted country_code = CHINA
+01-18 17:21:09.429 D/AndroidRuntime(26056): setted countryiso_code = CN
+01-18 17:21:09.429 D/AndroidRuntime(26056): setted sales_code = CTC
+01-18 17:21:09.449 D/AndroidRuntime(26056): readGMSProperty: start
+01-18 17:21:09.449 D/AndroidRuntime(26056): readGMSProperty: already setted!!
+01-18 17:21:09.449 D/AndroidRuntime(26056): readGMSProperty: end
+01-18 17:21:09.449 D/AndroidRuntime(26056): addProductProperty: start
+01-18 17:21:11.679 D/AndroidRuntime(26056): Calling main entry com.android.commands.am.Am
+01-18 17:21:12.329 D/AndroidRuntime(26056): Shutting down VM
+01-18 17:21:12.349 I/AndroidRuntime(26056): NOTE: attach of thread 'Binder_3' failed
+01-18 17:21:16.789 D/AndroidRuntime(26189): 
+01-18 17:21:16.789 D/AndroidRuntime(26189): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:21:16.789 D/AndroidRuntime(26189): CheckJNI is OFF
+01-18 17:21:16.799 D/AndroidRuntime(26189): setted country_code = CHINA
+01-18 17:21:16.799 D/AndroidRuntime(26189): setted countryiso_code = CN
+01-18 17:21:16.799 D/AndroidRuntime(26189): setted sales_code = CTC
+01-18 17:21:16.809 D/AndroidRuntime(26189): readGMSProperty: start
+01-18 17:21:16.809 D/AndroidRuntime(26189): readGMSProperty: already setted!!
+01-18 17:21:16.809 D/AndroidRuntime(26189): readGMSProperty: end
+01-18 17:21:16.809 D/AndroidRuntime(26189): addProductProperty: start
+01-18 17:21:17.549 D/AndroidRuntime(26189): Calling main entry com.android.commands.pm.Pm
+01-18 17:21:34.959 D/AndroidRuntime(26189): Shutting down VM
+01-18 17:21:36.609 D/AndroidRuntime(26621): 
+01-18 17:21:36.609 D/AndroidRuntime(26621): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+01-18 17:21:36.609 D/AndroidRuntime(26621): CheckJNI is OFF
+01-18 17:21:36.619 D/AndroidRuntime(26621): setted country_code = CHINA
+01-18 17:21:36.619 D/AndroidRuntime(26621): setted countryiso_code = CN
+01-18 17:21:36.619 D/AndroidRuntime(26621): setted sales_code = CTC
+01-18 17:21:36.629 D/AndroidRuntime(26621): readGMSProperty: start
+01-18 17:21:36.629 D/AndroidRuntime(26621): readGMSProperty: already setted!!
+01-18 17:21:36.639 D/AndroidRuntime(26621): readGMSProperty: end
+01-18 17:21:36.639 D/AndroidRuntime(26621): addProductProperty: start
+01-18 17:21:37.649 D/AndroidRuntime(26621): Calling main entry com.android.commands.am.Am
+01-18 17:21:37.879 D/AndroidRuntime(26621): Shutting down VM
+01-18 17:21:37.889 I/AndroidRuntime(26621): NOTE: attach of thread 'Binder_3' failed
+01-18 17:23:16.199 I/AndroidRuntime(25868): VM exiting with result code 36.

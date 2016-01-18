@@ -1,1 +1,0 @@
-15161  0   0% S    30 1582912K  80592K  bg u0_a243  com.motherbuy.bmec.android
