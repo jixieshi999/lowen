@@ -6,3 +6,6 @@
 # 忽略所有out和 mr文件.
 out/
 mr/
+out/**
+mr/*/*
+mr/*/
