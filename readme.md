@@ -33,6 +33,14 @@ bin\launch.py
 - lowen -p 编辑mr脚本
 - 运行lowen -s 开始测试
 
+例子3
+- 运行>启动Lowen测试.bat 直接启动测试或者命令行lowen -s（该命令会自动新建空的mr目录）
+- 如果没有mr文件夹，先新建mr文件夹，然后按照mr_samples目录下面的脚本开始编写测试脚本
+
+例子4
+- 运行>录制脚本.bat 开启mr脚本录入（或者执行命令行lowen -p）
+
+
 	
 ###运行环境
 - windows，安装sdk，jdk，python2.X
