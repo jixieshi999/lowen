@@ -4,5 +4,5 @@
 # 忽略所有生成的 bak文件,
 *.bak
 # 忽略所有out和 mr文件.
-out
-mr
+out/
+mr/

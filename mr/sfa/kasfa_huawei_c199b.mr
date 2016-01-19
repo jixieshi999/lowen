@@ -4,7 +4,7 @@
 TOUCH|{'x':411,'y':483,'type':'downAndUp',}
 
 #输入1001
-TYPE|{'message':'1001',}
+TYPE|{'message':'1001',} 
 
 #关掉输入法
 TOUCH|{'x':672,'y':666,'type':'downAndUp',}
@@ -44,7 +44,7 @@ TOUCH|{'x':128,'y':490,'type':'downAndUp',}
 TOUCH|{'x':90,'y':680,'type':'downAndUp',}
 
 #点击搜索按钮
-TOUCH|{'x':641,'y':463,'type':'downAndUp',}
+TOUCH|{'x':641,'y':483,'type':'downAndUp',}
 
 #------------------------------------客户拜访-------------结束-------------------------------------------------
 
