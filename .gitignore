@@ -5,7 +5,5 @@
 *.bak
 # 忽略所有out和 mr文件.
 out/
+/mr
 mr/
-out/**
-mr/*/*
-mr/*/

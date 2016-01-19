@@ -1,8 +1,0 @@
-
-pkgkey=com.ebest.sfa
-
-apkPathkey=E:/lwh/apk/SFADali-2.1.0.1-1230-03-beta.apk
-
-actkey=com.ebest.sfa/com.ebest.sfa.login.activity.LoginActivity
-
-moudlekey=
