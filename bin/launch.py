@@ -9,6 +9,8 @@ from tkMessageBox import *
 
 root=sys.argv[1]
 rootdir = root+"mr"                                  
+if(False==os.path.exists(rootdir)):
+    os.mkdir(rootdir)
 for parent,dirnames,filenames in os.walk(rootdir):    
     #print "ds is: " + str(dirnames)+" fs:"+str(filenames)+" parent:"+parent+" r:"+rootdir
     if parent.endswith(rootdir):
