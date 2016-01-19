@@ -9,7 +9,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
   
 /**  
  * 输出html报表 
@@ -33,7 +39,6 @@ public class HtmlOutPutCore {
      */  
     public static void main(String[] args) {
         //from args过来
-        String outPath="G:/lwh/xwandou/code/monkeytest/out/20160106_204837/";
         if(args==null||args.length==0){
 			System.out.println("error params is null!");
         	return;
@@ -210,12 +215,27 @@ public class HtmlOutPutCore {
 		//log("outputHtmlFile:" + outputHtmlFile);
 		long beginDate = (new Date()).getTime();
 		try {
+			StringBuilder sbx=new StringBuilder();
+			StringBuilder sbser=new StringBuilder();
+			String mempath=basePath+"out\\"+outName+"\\meminfo";
+			ArrayList<MemInfo>  datamap=getMemList(mempath);
+			sbx.append("[");
+			sbser.append("[");
+			
+			for(MemInfo minfo:datamap) {
+				sbx.append("'").append(Float.valueOf(minfo.getValue())/1000+"").append("',");
+				sbser.append("'").append(minfo.getformatTime()).append("',");
+			}
+			sbx.deleteCharAt(sbx.length()-1);
+			sbser.deleteCharAt(sbser.length()-1);
+			sbx.append("]");
+			sbser.append("]");
+			log("x:"+sbx.toString());
+			log("ser:"+sbser.toString());
 			// ['周一','周二','周三','周四','周五','周六','周日']
-			mdSectionStr = mdSectionStr.replaceAll("###opstionsxAxis###",
-					"['周一','周二','周三','周四','周五','周六','周日']");
+			mdSectionStr = mdSectionStr.replaceAll("###opstionsxAxis###",sbx.toString());
 			// [1, -2, 2, 5, 3, 2, 0]
-			mdSectionStr = mdSectionStr.replaceAll("###opstionsxSeries###",
-					"[1, -2, 2, 5, 3, 2, 0] ");
+			mdSectionStr = mdSectionStr.replaceAll("###opstionsxSeries###",sbser.toString());
 
 			// ../html_model
 			mdPathStr = mdPathStr.replaceAll("###startTime###",startTime);// 替换掉模块中相应的地方
@@ -250,7 +270,33 @@ public class HtmlOutPutCore {
 		return true;
 	}
 
-
+public static class MemInfo implements Comparable{
+	public String time;
+	public String value;
+	
+	public MemInfo(String time, String value) {
+		super();
+		this.time = time;
+		this.value = value;
+	}
+	@Override
+	public int compareTo(Object arg0) {
+		MemInfo obj = (MemInfo) arg0;  
+        return Integer.valueOf(time) - Integer.valueOf(obj.time);  
+	}
+	public String getValue(){
+		return value;
+	}
+	public String getformatTime(){
+		return time.substring(0, 2)+":"+time.substring(2,4)+":"+time.substring(4,6);
+	}
+	@Override
+	public String toString() {
+		return "MemInfo [time=" + time + ", value=" + value + "]";
+	}
+	
+	
+}
 	  /***
 	   * 生成报表页面
 	   * **/
@@ -300,6 +346,46 @@ public class HtmlOutPutCore {
 		return true;
 	}
 
-  
+
+    public static ArrayList<MemInfo>   getCpuList(String filess){
+    	return getInfoList(filess,2);
+    }
+
+    public static ArrayList<MemInfo>   getMemList(String filess){
+    	return getInfoList(filess,1);
+    }
+    public static ArrayList<MemInfo>  getInfoList(String filess,int col){
+        ArrayList<MemInfo> map=new ArrayList<MemInfo>();
+		File root = new File(filess);
+	    File[] files = root.listFiles();
+	    for(File file:files){
+	    	if(file.isFile()){
+	    		String ss=getStringFromFile(file.getAbsolutePath());
+//	            String str ="20532  3   0% S    13 1517432K  45852K  bg u0_a90   android.liu.weidata";
+
+//adb shell top -n 1 -d 0.5| grep android.liu.weidata
+//  PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+//20532  3   0% S    13 1517432K  45852K  bg u0_a90   android.liu.weidata
+
+//adb shell dumpsys meminfo android.liu.weidata | grep TOTAL
+//TOTAL    27005    21548     2832        0    37199    23853    13345
+//TOTAL    32970    26984     3180        0    42927    28896    14030
+	    		String []list=ss.split(" ");
+	            int i=0;
+	            for(String s:list){
+	            	if(null!=s&&!"".equals(s.trim())){
+	            		if(i==col){
+		            		map.add(new MemInfo(file.getName().substring(9, 15), s));
+	            			break;
+	            		}
+	            		i++;
+	            	}
+	            }
+	            Collections.sort(map); 
+//	            System.out.println(map);
+	    	}
+	    }
+	    return map;
+    }
 
 }  
