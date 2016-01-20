@@ -44,6 +44,7 @@ set starttime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%tim
 if not exist %basePath%out\%currentTestName% mkdir %basePath%out\%currentTestName%
 
 
+copy %apkPath% %basePath%out\%currentTestName%\
 ::-------------------------------------------------------step-1-----------------------------------------------------------------------------
 
 

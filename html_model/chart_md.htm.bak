@@ -30,8 +30,8 @@
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="./index.htm" title="测试">###appName###的测试报告</a></h1>
-				<h2 class="blog-motto">测试结果明细</h2>
+				<h1 class="site-name"><a href="./index.htm" title="测试">###appName###</a></h1>
+				<h2 class="blog-motto">测试报告</h2>
 			</div>
 			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
@@ -42,6 +42,7 @@
 					
 						<li><a class="jietu" href="./sh.htm">截图</a></li>
 						<li><a href="./androidlog.txt"  target="_blank">日志下载</a></li>
+						<li><a href="./androidlog.txt"  target="_blank">apk下载</a></li>
 					
 					<li>
 					
