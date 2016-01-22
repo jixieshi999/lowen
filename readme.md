@@ -27,19 +27,26 @@ bin\launch.py
     + actkey apk启动activity 路径com.ebest.sfa.xxx/com.ebest.sfa.login.activity.LoginActivity
     + moudlekey 暂时没用到，可以扩展到脚本里面
 - 运行lowen -s 开始测试
+- 路径配置（只用配置apk路径和包名）                 
+![路径配置](http://jixieshi999.github.io/lowen/mr_config.jpg )
 
 例子2
 - mr目录下新建测试目录，同理例子1配置config.txt
 - lowen -p 编辑mr脚本
 - 运行lowen -s 开始测试
+- 录制脚本（截图手机屏幕，获取坐标点）
+ ![录制脚本](http://jixieshi999.github.io/lowen/play.jpg )
 
 例子3
 - 运行>启动Lowen测试.bat 直接启动测试或者命令行lowen -s（该命令会自动新建空的mr目录）
 - 如果没有mr文件夹，先新建mr文件夹，然后按照mr_samples目录下面的脚本开始编写测试脚本
-
+- 脚本编写（编写点击，输入，等待，滑动等操作，有些输入法不支持输入，需要替换成点击操作）
+ ![脚本编写] (http://jixieshi999.github.io/lowen/mr_script.jpg )
+ 
 例子4
 - 运行>录制脚本.bat 开启mr脚本录入（或者执行命令行lowen -p）
-
+- 错误日志记录（输出AndroidRuntime 错误日志）
+ ![错误日志记录](http://jixieshi999.github.io/lowen/log.jpg )
 
 	
 ###运行环境
@@ -82,6 +89,7 @@ bin\launch.py
 
 ###eg:
   -  lowen -s
+  -  启动命令
   -  ![启动命令](http://jixieshi999.github.io/lowen/cmd.jpg )
 
 
