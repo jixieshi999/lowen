@@ -42,3 +42,4 @@ for parent,dirnames,filenames in os.walk(rootdir):
             #print "filename is: " + filename
             #print "the full name of the file is: " + os.path.join(parent,filename)
         break
+os.system("start "+root+"out\index.htm")
