@@ -19,6 +19,7 @@ import random
 import time
 import os
 import threading
+import signal
 from com.android.monkeyrunner import MonkeyRunner
 
 # The format of the file we are parsing is very carfeully constructed.
@@ -35,6 +36,7 @@ from com.android.monkeyrunner import MonkeyRunner
 # MonkeyDevice.touch(x,y,type)
 # MonkeyDevice.type(message)
 # MonkeyDevice.drag(start,end,duration,steps)
+deviceid=''
 
 CMD_MAP = {
     'TOUCH': lambda dev, arg: dev.touch(**arg),
@@ -47,7 +49,7 @@ CMD_MAP = {
 CMD_MAPLog = {
     'TOUCH': lambda f,nowtimes, rest: f.write(nowtimes+'-'+str(rest["x"])+','+str(rest["y"])+'-touch('+str(rest["x"])+','+str(rest["y"])+')\n'),
     'DRAG': lambda f,nowtimes, rest: f.write(nowtimes+'-'+str(rest["startx"])+','+str(rest["starty"])+';'+str(rest["endx"])+','+str(rest["endy"])+'-from('+str(rest["startx"])+','+str(rest["starty"])+');to('+str(rest["endx"])+','+str(rest["endy"])+')\n'),
-		
+        
     'PRESS': lambda f,nowtimes, rest: f.write(nowtimes+'-100,500-press('+str(rest["name"])+')\n'),
     'TYPE': lambda f,nowtimes, rest: f.write(nowtimes+'-100,500-TYPE('+str(rest["message"])+')\n'),
     'WAIT': lambda f,nowtimes, rest: f.write(nowtimes+'-100,500-WAIT('+str(rest["seconds"])+')\n')
@@ -63,7 +65,7 @@ def process_file(fp, device,f,outpath):
             continue
         if line.startswith('#'):
             continue
-		
+        
         (cmd, rest) = line.split('|')
         try:
             # Parse the pydict
@@ -84,12 +86,12 @@ def process_file(fp, device,f,outpath):
         #----------------------------------------------------------------------------------------------------------------------------
 
         print '< start excute command >: ',cmd,' ,param : ',rest
-		#执行模拟事件
+        #执行模拟事件
         CMD_MAP[cmd](device, rest)
 
-		
+        
         #----------------------------------------------------------------------------------------------------------------------------
-		#将命令写入到日志，用于给图片打码
+        #将命令写入到日志，用于给图片打码
         if cmd  in CMD_MAPLog:
             CMD_MAPLog[cmd](f,nowtimes, rest)
         #print 'unable to parse options',rest,type(rest)
@@ -103,31 +105,31 @@ def process_file_scale(fp, device,f,outpath,rateX,rateY):
             continue
         if line.startswith('#'):
             continue
-		
+        
         (cmd, rest) = line.split('|')
         try:
             # Parse the pydict
             rest = eval(rest)
         except:
             #print ' -------------debug:unable to parse options cmd --------------------- '
-            print '< unknown command >: ',cmd,' ,unable to parse options ',rest
+            print '< unknown command >: ',deviceid,' ',cmd,' ,unable to parse options ',rest
             continue
 
         if cmd not in CMD_MAP:
-            print '< unknown command >: ',cmd
+            print '< unknown command >: ',deviceid,' ',cmd
             continue
         if cmd=='TOUCH':
-            print '< old command >: ',rest
+            print '< old command >: ',deviceid,' ',rest
             rest["x"]=int(float(rest["x"])*rateX)
             rest["y"]=int(float(rest["y"])*rateY)
-            print '< new command >: ',rest
+            print '< new command >: ',deviceid,' ',rest
         if cmd=='DRAG':
-            print '< old command >: ',rest
+            print '< old command >: ',deviceid,' ',rest
             rest["startx"]=int(float(rest["startx"])*rateX)
             rest["starty"]=int(float(rest["starty"])*rateY)
             rest["endx"]=int(float(rest["endx"])*rateX)
             rest["endy"]=int(float(rest["endy"])*rateY)
-            print '< new command >: ',rest
+            print '< new command >: ',deviceid,' ',rest
             
         #----------------------------------------------------------------------------------------------------------------------------
         #先保存照片截图
@@ -136,13 +138,13 @@ def process_file_scale(fp, device,f,outpath,rateX,rateY):
         result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
         #----------------------------------------------------------------------------------------------------------------------------
 
-        print '< start excute command >: ',cmd,' ,param : ',rest
-		#执行模拟事件
+        print '< start excute command >: ',deviceid,' ',cmd,' ,param : ',rest ," ",time.strftime('%Y%m%d%H%M%S', time.localtime())
+        #执行模拟事件
         CMD_MAP[cmd](device, rest)
 
-		
+        
         #----------------------------------------------------------------------------------------------------------------------------
-		#将命令写入到日志，用于给图片打码
+        #将命令写入到日志，用于给图片打码
         if cmd  in CMD_MAPLog:
             CMD_MAPLog[cmd](f,nowtimes, rest)
         #print 'unable to parse options',rest,type(rest)
@@ -150,21 +152,49 @@ def process_file_scale(fp, device,f,outpath,rateX,rateY):
         #----------------------------------------------------------------------------------------------------------------------------
 
 
+def exitGracefully(signum, frame):
+    print "Exiting Gracefully..."
+    filenames=os.getcwd()+deviceid+"devices.txt"
 
+    #http://stackoverflow.com/questions/23416663/monkey-runner-throwing-socket-exception-broken-pipe-on-touuch/28070375#28070375
+    #http://stackoverflow.com/questions/12208269/how-do-i-catch-socketexceptions-in-monkeyrunner
+    #shell     23267 18413 1323768 27536 ffffffff b6e50b70 S com.android.commands.monkey
+    if os.path.exists(filenames):
+        os.remove(filenames)
+    os.system("adb -s "+deviceid+" shell ps | grep monkey > "+filenames)
+    ss=''
+    try:
+        #ss='修改版本号加内容如下：\n\n'
+        for line in open(filenames):  
+            if line.startswith('List of devices'):
+                filepathhss=sys.argv[0]
+            elif line.startswith('   '):
+                filepathhss=sys.argv[0]
+            elif line.strip()=='':
+                filepathhss=sys.argv[0]
+            else:
+                ss=line.decode('gb2312').encode('utf-8')
+                os.system("adb -s "+deviceid+" shell kill -9 "+ss.split()[1])
+    except Exception, e:  
+        print str(e)
+    #subprocess.call(['./killmonkey.sh'])
+    sys.exit(1)
 def main():
     #file = sys.argv[1]
+    signal.signal(signal.SIGINT, exitGracefully)
+    global deviceid
 
     print('---------------------- start cmd --------------------------')
-	
+    
     #----------------------------------------------------------------------------------------------------------------------------
-	#初始化系统路径
+    #初始化系统路径
     #config path
     #currentTestName=time.strftime( '%Y%m%d_%H%M%S', time.localtime() )+'_SFA'
     #currentTestName=sys.argv[2]
     #basePath=sys.argv[3]
-	#是否需要以基准分辨率缩放,默认800*480
+    #是否需要以基准分辨率缩放,默认800*480
     for argv in sys.argv:
-        print ('< system args >  : '+argv  )
+        print ('< system args >  : '+deviceid+' '+argv  )
         if argv.startswith('mr='):
             file = argv[3:]
         if argv.startswith('basePath='):
@@ -184,6 +214,8 @@ def main():
             apkPath=argv[8:]
         if argv.startswith('act='):
             startActivity=argv[4:]
+        if argv.startswith('deviceid='):
+            deviceid=argv[9:]
             
     #print(needScale,baseWidth,baseHeigth)
     fp = open(file, 'r')
@@ -199,15 +231,16 @@ def main():
     #----------------------------------------------------------------------------------------------------------------------------
 
 
-    device = MonkeyRunner.waitForConnection()
+    device = MonkeyRunner.waitForConnection(50,deviceid)
     
 
-	
+    
     #device.removePackage ('com.ebest.sfa') 
+    print('< system   > device : '+deviceid+' '+pkg +" "+time.strftime('%Y%m%d%H%M%S', time.localtime()) )
     device.removePackage (pkg) 
     #device.installPackage('E:/lwh/apk/SFADali-2.1.0.1-1230-03-beta.apk')
     device.installPackage(apkPath)
-	#定义要启动的Activity  
+    #定义要启动的Activity  
     #componentName='com.motherbuy.bmec.android/com.motherbuy.bmec.android.WelcomeActivity'  
     #componentName='com.ebest.sfa/com.ebest.sfa.login.activity.LoginActivity'   
     componentName=startActivity  
@@ -222,13 +255,13 @@ def main():
     device.startActivity(component=componentName) 
 
     #----------------------------------------------------------------------------------------------------------------------------
-	#获取系统参数
+    #获取系统参数
     ret = device.getProperty("build.device")
-    print('< system propory > device : '+str(ret)  )
+    print('< system propory > device : '+deviceid+' '+str(ret) +" "+time.strftime('%Y%m%d%H%M%S', time.localtime()) )
     screen_width = device.getProperty("display.width")
-    print('< system propory > display.width : '+str(screen_width)  )
+    print('< system propory > display.width : '+deviceid+' '+str(screen_width)+" "+time.strftime('%Y%m%d%H%M%S', time.localtime())  )
     screen_height = device.getProperty("display.height")
-    print('< system propory > display.height : '+str(screen_height)  )
+    print('< system propory > display.height : '+deviceid+' '+str(screen_height)+" "+time.strftime('%Y%m%d%H%M%S', time.localtime())  )
     #----------------------------------------------------------------------------------------------------------------------------
 
 
@@ -251,7 +284,7 @@ def main():
 
 
     #----------------------------------------------------------------------------------------------------------------------------
-	#保存最后一次快照
+    #保存最后一次快照
     nowtimes=time.strftime('%Y%m%d%H%M%S', time.localtime())
     result = device.takeSnapshot()
     result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
@@ -261,7 +294,7 @@ def main():
     f.close()
 
     #----------------------------------------------------------------------------------------------------------------------------
-	#将照片添加水印
+    #将照片添加水印
     #cmdcommand='java -jar '+basePath+'bin/ImageMarkClickLogo.jar  -cl c=#ff0000 s=50 out='+outpath
     #cmdcommand='java -jar '+basePath+'bin/ImageMarkClickLogo.jar -l -cl c=#000000 s=50 out='+outpath
     #os.system(cmdcommand)
@@ -272,7 +305,7 @@ def main():
     #t1.join()
     
     #os.system('taskkill  /FI "WINDOWTITLE eq AndroidMonkeyLog"')
-    print('---------------------- end cmd --------------------------')
+    print('---------------------- end cmd ----'+deviceid+' '+'----------------------' +" "+time.strftime('%Y%m%d%H%M%S', time.localtime()))
     
 
 if __name__ == '__main__':

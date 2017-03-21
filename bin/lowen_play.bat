@@ -8,9 +8,11 @@ echo basePath:%basePath%
 set mr=%2
 set mrconfig=%3
 set mrname=%4
+set deviceid=%5
 echo mr:%mr%
 echo mrconfig:%mrconfig%
 echo mrname:%mrname%
+echo deviceid:%deviceid%
 
 
 
@@ -38,7 +40,7 @@ CALL %basePath%bin\readConfig %mrconfig% moudlekey moudleName
 
 set currentHour=%time:~0,2%
 if "%time:~0,1%"==" " set currentHour=0%time:~1,1%
-set currentTestName=%moudleName%_%mrname%_%date:~0,4%%date:~5,2%%date:~8,2%_%currentHour%%time:~3,2%%time:~6,2%
+set currentTestName=%moudleName%_%mrname%_%deviceid%_%date:~0,4%%date:~5,2%%date:~8,2%_%currentHour%%time:~3,2%%time:~6,2%
 set starttime=%date:~0,4%-%date:~5,2%-%date:~8,2%_%currentHour%:%time:~3,2%:%time:~6,2%
 ::set basePath=g:\lwh\xwandou\code\monkeytest\
 if not exist %basePath%out\%currentTestName% mkdir %basePath%out\%currentTestName%
@@ -52,13 +54,13 @@ echo ----------------------开始测试 %currentTestName%---------------------------
 
 ::-------------------------------------------------------step-2-----------------------------------------------------------------------------
 echo ----%time%----2.开启线程记录cpu，内存等日志-------------
-start %basePath%\bin\apkinfo.bat %pkg% %basePath%out\%currentTestName%
+start %basePath%\bin\apkinfo.bat %pkg% %basePath%out\%currentTestName% %deviceid%
 ::-------------------------------------------------------step-2-----------------------------------------------------------------------------
 
 
 ::-------------------------------------------------------step-3-----------------------------------------------------------------------------
 echo ----%time%----3.开启线程记录adb log日志-------------
-start %basePath%\bin\log.bat %basePath%out\%currentTestName%
+start %basePath%\bin\log.bat %basePath%out\%currentTestName% %deviceid%
 ::-------------------------------------------------------step-3-----------------------------------------------------------------------------
 
 
@@ -67,7 +69,7 @@ echo ----%time%----4.执行py脚本-------------
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\sfadaka2.mr  %currentTestName%  %basePath%
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199.mr  %currentTestName%  %basePath%
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199_qingjia.mr  %currentTestName%  %basePath%
-call monkeyrunner %basePath%tools\monkey_playbackNew.py pkg=%pkg% apkPath=%apkPath% act=%act%  mr=%mr%  name=%currentTestName%  basePath=%basePath% scale=scale screen=480.800 
+call monkeyrunner %basePath%tools\monkey_playbackNew.py pkg=%pkg% apkPath=%apkPath% act=%act%  mr=%mr%  name=%currentTestName%  basePath=%basePath% scale=scale screen=480.800 deviceid=%deviceid%  
 ::-------------------------------------------------------step-4-----------------------------------------------------------------------------
 
 
@@ -79,8 +81,8 @@ java -jar %basePath%bin\ImageMarkClickLogo.jar  -cl c=#000000 s=50 out=%basePath
 
 ::-------------------------------------------------------step-6-----------------------------------------------------------------------------
 echo ----%time%----6.关闭记录日志的线程（关闭窗口）-------------
-taskkill  /FI "WINDOWTITLE eq AndroidInfo"
-taskkill  /FI "WINDOWTITLE eq AndroidMonkeyLog"
+taskkill  /FI "WINDOWTITLE eq AndroidInfo_%deviceid%"
+taskkill  /FI "WINDOWTITLE eq AndroidMonkeyLog_%deviceid%"
 ::-------------------------------------------------------step-6-----------------------------------------------------------------------------
 
 

@@ -1,7 +1,7 @@
 @title bat×Ô¶¯»¯±àÒë
 
 @echo off
-@set version=2.1
+@set version=3.1
 @if '%1'=='' (
     goto help
 )
@@ -37,7 +37,7 @@
 
 @if %1==-s (
     ::call bin\main.bat %~dp0
-    call python bin\launch.py %~dp0
+    call python bin\launch.py %~dp0 
 )
 @if %1==-c (
     rm -rf out
@@ -55,5 +55,5 @@
     
 
 
-pause
+:: pause
 :endBat

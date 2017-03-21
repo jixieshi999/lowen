@@ -1,8 +1,8 @@
-title AndroidMonkeyLog
+title AndroidMonkeyLog_%2
 
 ::----------------------------我是分割线------------------------------------------------------
 
-adb logcat -v time -s AndroidRuntime >%1\androidlog.txt
+adb -s %2 logcat -v time -s AndroidRuntime > %1\androidlog.txt
 
 ::----------------------------我是分割线------------------------------------------------------
 
