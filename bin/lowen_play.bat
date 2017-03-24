@@ -36,6 +36,9 @@ echo                 act           表示测试的apk启动activity
 CALL %basePath%bin\readConfig %mrconfig% actkey act 
 echo                 mr            表示测试的apk录制的脚本路径
 CALL %basePath%bin\readConfig %mrconfig% moudlekey moudleName 
+
+CALL %basePath%bin\readConfig %mrconfig% scalekey scaleData 
+CALL %basePath%bin\readConfig %mrconfig% screenkey screenData
 ::<<<< 此处路径需要修改 <<<<
 
 set currentHour=%time:~0,2%
@@ -69,7 +72,7 @@ echo ----%time%----4.执行py脚本-------------
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\sfadaka2.mr  %currentTestName%  %basePath%
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199.mr  %currentTestName%  %basePath%
 ::call monkeyrunner %basePath%tools\monkey_playbackNew.py %basePath%mr\kasfa_huawei_c199_qingjia.mr  %currentTestName%  %basePath%
-call monkeyrunner %basePath%tools\monkey_playbackNew.py pkg=%pkg% apkPath=%apkPath% act=%act%  mr=%mr%  name=%currentTestName%  basePath=%basePath% scale=scale screen=480.800 deviceid=%deviceid%  
+call monkeyrunner %basePath%tools\monkey_playbackNew.py pkg=%pkg% apkPath=%apkPath% act=%act%  mr=%mr%  name=%currentTestName%  basePath=%basePath% scale=%scaleData% screen=%screenData% deviceid=%deviceid%  
 ::-------------------------------------------------------step-4-----------------------------------------------------------------------------
 
 

@@ -11,7 +11,8 @@ from tkMessageBox import *
 
 
 def doCommandByDevice(deviceid):
-    
+    if deviceid=='':
+        return
     root=sys.argv[1]
     rootdir = root+"mr"                                  
     if(False==os.path.exists(rootdir)):
@@ -30,6 +31,7 @@ def doCommandByDevice(deviceid):
                     #print  "dirname: "+dirname+" ----------dd is: " + dd
                     for fff in ff:
                         commmd=""+root+"bin/lowen_play.bat "+root+" "+rootdir+"/"+dirname+"/"+fff+" "+rootdir+"/"+dirname+"/config.txt"+" "+fff
+                        print commmd
                         if os.path.exists(rootdir+"/"+dirname+"/config.txt"):
                             if fff.endswith('mr'):
                                 print " run command : ",commmd," "+deviceid+" "+ctime()
