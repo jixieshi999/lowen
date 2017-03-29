@@ -1,4 +1,6 @@
 ###说明
+lowen 3 新版本支持多手机同时执行同一个脚本
+
 lowen 基于monkeyrunner的android应用的自动化测试，并输出测试结果到html的框架
 仿腾讯[utest](http://auto.utest.qq.com/)测试框架
 
