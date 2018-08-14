@@ -2,6 +2,8 @@
 lowen 基于monkeyrunner的android应用的自动化测试，并输出测试结果到html的框架
 仿腾讯[utest](http://auto.utest.qq.com/)测试框架
 
+##lowen3版本稳定支持多个设备（最多40个USB接入）同时执行脚本
+
 代码有待完善，欢迎有兴趣的朋友一起讨论（目前报表里面使用echarts部分没有写数据处理逻辑，框架已搭好）
 ###主框架代码1
 bin\lowen_play.bat
