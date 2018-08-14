@@ -20,6 +20,7 @@ import time
 import os
 import threading
 import signal
+import subprocess
 from com.android.monkeyrunner import MonkeyRunner
 
 # The format of the file we are parsing is very carfeully constructed.
@@ -39,12 +40,12 @@ from com.android.monkeyrunner import MonkeyRunner
 deviceid=''
 
 CMD_MAP = {
-    'TOUCH': lambda dev, arg: dev.touch(**arg),
-    'DRAG': lambda dev, arg: dev.drag((int(arg["startx"]),int(arg["starty"])),(int(arg["endx"]),int(arg["endy"])),0.1,5),
-    'PRESS': lambda dev, arg: dev.press(**arg),
-    'TYPE': lambda dev, arg: dev.type(**arg),
+    'TOUCH': lambda dev, arg: subprocess.call('adb  -s '+deviceid+'   shell   input  tap  '+str(random.randint(arg["x"]-3, arg["x"]+3))+'  '+str(random.randint(arg["y"]-3, arg["y"]+3)), shell=True),
+    'DRAG': lambda dev, arg: subprocess.call('adb  -s '+deviceid+'   shell   input  swipe    '+str(random.randint(arg["startx"]-3, arg["startx"]+3))+'  '+str(random.randint(arg["starty"]-3, arg["starty"]+3))+'  '+str(random.randint(arg["endx"]-3, arg["endx"]+3))+'  '+str(random.randint(arg["endy"]-3, arg["endy"]+3)), shell=True),
+    'PRESS': lambda dev, arg: subprocess.call('adb  -s '+deviceid+'   shell input keyevent \''+arg["name"]+'\' ', shell=True),
+    'TYPE': lambda dev, arg: subprocess.call('adb  -s '+deviceid+'   shell   input text "'+arg["message"]+'"  ', shell=True),
     #'TYPE': lambda dev, arg: dev.shell(str(arg["message"])),
-    'WAIT': lambda dev, arg: MonkeyRunner.sleep(**arg)
+    'WAIT': lambda dev, arg: time.sleep(int(arg["seconds"]))
     }
 CMD_MAPLog = {
     'TOUCH': lambda f,nowtimes, rest: f.write(nowtimes+'-'+str(rest["x"])+','+str(rest["y"])+'-touch('+str(rest["x"])+','+str(rest["y"])+')\n'),
@@ -56,9 +57,9 @@ CMD_MAPLog = {
     }
 
 def logToFile(logfile):
-    os.system('adb logcat -v time -s AndroidRuntime > '+logfile)
+    os.system('adb -s '+deviceid+'  logcat -v time -s AndroidRuntime > '+logfile)
 # Process a single file for the specified device.
-def process_file(fp, device,f,outpath):
+def process_file(fp, f,outpath):
     outImgpathName="img"
     for line in fp:
         if line.strip()=='':
@@ -81,13 +82,15 @@ def process_file(fp, device,f,outpath):
         #----------------------------------------------------------------------------------------------------------------------------
         #先保存照片截图
         nowtimes=time.strftime('%Y%m%d%H%M%S', time.localtime())
-        result = device.takeSnapshot()
-        result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
+        #result = device.takeSnapshot()
+        #result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
+        subprocess.call('adb -s '+deviceid+'  shell screencap -p /sdcard/screen_kd.png     ', shell=True) 
+        subprocess.call('adb -s '+deviceid+' pull /sdcard/screen_kd.png    '+outpath+outImgpathName+"/"+nowtimes+'.png', shell=True)
         #----------------------------------------------------------------------------------------------------------------------------
 
         print '< start excute command >: ',cmd,' ,param : ',rest
         #执行模拟事件
-        CMD_MAP[cmd](device, rest)
+        CMD_MAP[cmd]('', rest)
 
         
         #----------------------------------------------------------------------------------------------------------------------------
@@ -95,10 +98,11 @@ def process_file(fp, device,f,outpath):
         if cmd  in CMD_MAPLog:
             CMD_MAPLog[cmd](f,nowtimes, rest)
         #print 'unable to parse options',rest,type(rest)
-        MonkeyRunner.sleep(2.0)
+        #MonkeyRunner.sleep(2.0)
+        time.sleep(2)
         #----------------------------------------------------------------------------------------------------------------------------
 #处理缩放坐标的脚本
-def process_file_scale(fp, device,f,outpath,rateX,rateY):
+def process_file_scale(fp, f,outpath,rateX,rateY):
     outImgpathName="img"
     for line in fp:
         if line.strip()=='':
@@ -134,13 +138,15 @@ def process_file_scale(fp, device,f,outpath,rateX,rateY):
         #----------------------------------------------------------------------------------------------------------------------------
         #先保存照片截图
         nowtimes=time.strftime('%Y%m%d%H%M%S', time.localtime())
-        result = device.takeSnapshot()
-        result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
+        #result = device.takeSnapshot()
+        subprocess.call('adb  -s '+deviceid+'    shell screencap -p /sdcard/screen_kd.png     ', shell=True) 
+        subprocess.call('adb  -s '+deviceid+'   pull /sdcard/screen_kd.png    '+outpath+outImgpathName+"/"+nowtimes+'.png', shell=True)
+        #result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
         #----------------------------------------------------------------------------------------------------------------------------
 
         print '< start excute command >: ',deviceid,' ',cmd,' ,param : ',rest ," ",time.strftime('%Y%m%d%H%M%S', time.localtime())
         #执行模拟事件
-        CMD_MAP[cmd](device, rest)
+        CMD_MAP[cmd]('', rest)
 
         
         #----------------------------------------------------------------------------------------------------------------------------
@@ -148,7 +154,8 @@ def process_file_scale(fp, device,f,outpath,rateX,rateY):
         if cmd  in CMD_MAPLog:
             CMD_MAPLog[cmd](f,nowtimes, rest)
         #print 'unable to parse options',rest,type(rest)
-        MonkeyRunner.sleep(2.0)
+        #MonkeyRunner.sleep(2.0)
+        time.sleep(2)
         #----------------------------------------------------------------------------------------------------------------------------
 
 
@@ -224,22 +231,26 @@ def main():
     outpathName="out"
     outImgpathName="img"
     #basePath="g:/lwh/xwandou/code/monkeytest/"
-    outpath=basePath+outpathName+"/"+currentTestName+"/"
+    outpath=basePath+outpathName+"\\"+currentTestName+"\\"
     LOG_FILENAME=outpath+"log.txt"
     #makedirs
-    os.makedirs(outpath+outImgpathName)
+    print (outpath+outImgpathName).replace('\\','/')
+    os.makedirs((outpath+outImgpathName).replace('\\','/'))
     #----------------------------------------------------------------------------------------------------------------------------
 
 
-    device = MonkeyRunner.waitForConnection(50,deviceid)
+    #device = MonkeyRunner.waitForConnection(50,deviceid)
     
 
     
     #device.removePackage ('com.ebest.sfa') 
     print('< system   > device : '+deviceid+' '+pkg +" "+time.strftime('%Y%m%d%H%M%S', time.localtime()) )
-    device.removePackage (pkg) 
+    #device.removePackage (pkg) 
+    subprocess.call('adb  -s '+deviceid+'   uninstall '+pkg, shell=True)
     #device.installPackage('E:/lwh/apk/SFADali-2.1.0.1-1230-03-beta.apk')
-    device.installPackage(apkPath)
+    #device.installPackage(apkPath)
+    subprocess.call('adb  -s '+deviceid+'   install -r '+apkPath, shell=True)
+    time.sleep(4)
     #定义要启动的Activity  
     #componentName='com.motherbuy.bmec.android/com.motherbuy.bmec.android.WelcomeActivity'  
     #componentName='com.ebest.sfa/com.ebest.sfa.login.activity.LoginActivity'   
@@ -252,33 +263,36 @@ def main():
     #t1.start()
 
     #启动特定的Activity  
-    device.startActivity(component=componentName) 
+    #device.startActivity(component=componentName) 
+    subprocess.call('adb  -s '+deviceid+' shell  am start -n  '+componentName, shell=True)
 
     #----------------------------------------------------------------------------------------------------------------------------
     #获取系统参数
-    ret = device.getProperty("build.device")
-    print('< system propory > device : '+deviceid+' '+str(ret) +" "+time.strftime('%Y%m%d%H%M%S', time.localtime()) )
-    screen_width = device.getProperty("display.width")
+    process = os.popen('adb -s '+deviceid+'  shell wm size') # return file
+    #Physical size: 720x1280
+    output = process.read()
+    process.close()
+    #ret = device.getProperty("build.device")
+    print('< system propory > device : '+deviceid+' '+output +" "+time.strftime('%Y%m%d%H%M%S', time.localtime()) )
+    #screen_width = device.getProperty("display.width")
+    screen_width =output.split(':')[1].split('x')[0]
     print('< system propory > display.width : '+deviceid+' '+str(screen_width)+" "+time.strftime('%Y%m%d%H%M%S', time.localtime())  )
-    screen_height = device.getProperty("display.height")
+    #screen_height = device.getProperty("display.height")
+    screen_height =output.split(':')[1].split('x')[1]
     print('< system propory > display.height : '+deviceid+' '+str(screen_height)+" "+time.strftime('%Y%m%d%H%M%S', time.localtime())  )
     #----------------------------------------------------------------------------------------------------------------------------
 
 
-
-
-
-
-
-    MonkeyRunner.sleep(3.0)
+    #MonkeyRunner.sleep(3.0)
+    time.sleep(3)
 
     f=open(LOG_FILENAME,'w')
 
     
     if needScale.startswith('scale'):
-        process_file_scale(fp, device,f,outpath,float(screen_width)/float(baseWidth),float(screen_height)/float(baseHeigth))
+        process_file_scale(fp, f,outpath,float(screen_width)/float(baseWidth),float(screen_height)/float(baseHeigth))
     else:
-        process_file(fp, device,f,outpath)
+        process_file(fp, f,outpath)
         
     fp.close();
 
@@ -286,8 +300,10 @@ def main():
     #----------------------------------------------------------------------------------------------------------------------------
     #保存最后一次快照
     nowtimes=time.strftime('%Y%m%d%H%M%S', time.localtime())
-    result = device.takeSnapshot()
-    result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
+    #result = device.takeSnapshot()
+    #result.writeToFile(outpath+outImgpathName+"/"+nowtimes+'.png','png');
+    subprocess.call('adb  -s '+deviceid+'    shell screencap -p /sdcard/screen_kd.png     ', shell=True) 
+    subprocess.call('adb  -s '+deviceid+'   pull /sdcard/screen_kd.png    '+outpath+outImgpathName+"/"+nowtimes+'.png', shell=True)
     f.write(nowtimes+'-100,500-final page\n')
     #----------------------------------------------------------------------------------------------------------------------------
 

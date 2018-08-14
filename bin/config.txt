@@ -1,5 +1,0 @@
-
-svnpath=svn://172.16.0.68/xls
-propath=SFADali
-versionName=1.2.3
-versionCode=12
